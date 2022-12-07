@@ -1,0 +1,209 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Comparacion_maquinas_sin_linea" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:a="clr-namespace:Attended_Asstistant;assembly=Attended_Asstistant" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_UG" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Attended Form INFO PANTALLA" Name="INFO" Type="InArgument(a:Attended_Assistant_Form)" />
+    <x:Property Name="io_TransaccionRealizada" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="in_dt_Fechas" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <this:Comparacion_maquinas_sin_linea.in_dt_Fechas>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:Comparacion_maquinas_sin_linea.in_dt_Fechas>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1208,2176</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Comparacion_maquinas_sin_linea_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>Shanslab.ScreenResolutionManager.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>WallpaperChanger.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Comparacion_maquinas_sin_linea" sap:VirtualizedContainerService.HintSize="552,2111" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Fecha" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Reports   v1.54 " sap:VirtualizedContainerService.HintSize="510,2019" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,1730" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,1636" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_dt_Fechas.Rows]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+                  </ActivityAction.Argument>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,1511" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Fecha]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[item.ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Fecha'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_3" Text="[Fecha]">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="82, 176, 76, 19" ElementType="InputBox" FriendlyName="'18/10/2021'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl automationid='PART_Editor' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl automationid='PART_Editor' role='editable text' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFAAAAAXCAYAAACcTMh5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ3SURBVFhH7ZbvT5pXFMf3xyHMahvQ2EJnGVmoA6UqYbEBsSVqi0RoGWEDAkZrh6PRRfI8zJltMSSmIxlJDW6x8cX2Apu2MbLITKzLE+939z4/+NUtbYa2LOGbnBf33ANP7ueee875AG01pTbAJtUG2KTaAJtUywEslUooFArnZkdHR/KXzkYtB3Bvbw+ZTObc7ODgQP7S2agNsEn9I0Ch/BSPUyE4rtkwv3MqewFSXMNd40V0qLrQ7/seLwmRd+ge2cWixYl0iYAIZTx9nELIcQ22+R2cynHk8CdEhnTo7NBAO/IA2yfV3zPtLlpgX/gVPJ/CF04TujUqqD7sgfXOPNI8T/3LCI19JPrVXUa4Y2kRCs89gHeoF50qyT8W+prG0nhuBYnPPXCYetHviou+dwIwG7RiciGAUbW5ApAQARveLpgT2zg5zuNLkw7+zRq4z1fgsKdQpLBINgjr5AICo2qYawAWEib0+bL4868X+G66B6OpIv1fGS55jhWHHbF8EXz4M2h7HQh9w2M15oRBY4VvlQKJOtF36QburaSx5BtEt9GDhxRKctqMTvMUvkrLfr0LcQbwnh1XreMYNXbgyrsEyETIBryaWoAsw0yIbknrDa8GtuRvFQCHmQkMJ3+vrJlYjAKQkENkJi7g7o+CuCf8MA3N5DoEBeBhBhPDSeSKRSQDTtyYjEhZxMfg7NPDFeex7B2AZsgPjvm5WQyqKViOR3RqGDf9D6X4VR8ssl95tgGb+v0DZPo5rMd1MQO3MWcxIvJEgcvgDNTFMtUDZBdwvXohG15obqZRqrmAARpbpACVg4vPc9EDY/cIgvTwc24D9DIIng/Apv4Edx5VQTHjgnZclDNT8bUMQPLiW9zSdkBFa41+ZgN/KNkj0FhTGPnTavYxvRGgeR479DdSeTAhnD+tayKsFvptOnzsWRAP/zrAK2JmVuK5ONz9WowEVys+Zi0BkGXZmucyPPwznNAalnZfxtR6SdwTNu/DEs5Xap2iNwK8vYZjtids4r5FuoBagCn6ZDsNbrGesfXrAD/FDK2NbI/nOUTG+nCJPvFHcrxiLQKQrW9j7ViCxDqmMfJEhJMLmeoaiqK3rYEkF4LJvynGKQC5uBv92kH4lqow/q0Gsr2U3wadwYVYuh4esxYByDJIV5OBF+QuuoWoZRbZV/XZx1QLkIlB13nW8LKhC29FLZjNvhJjGEDlKQ76lsRDKyD4OTcM3RbMLNV3YT7lh01ngEseaxqtZWqgsLOM8aud0hw4nsIvdI4jhQTMU+viU2xUI0Ai7CDp6KmbAwkpIEFHkHU5s0WAARvUtM6yWquYBIBD/JY0H9bOgexpdzTEW33c+wX4tmJZ5UxLtfC/iOwuwuKsduPaGnge1nIAz1ptgE1qf38fuVzu3KxcLstfOhu1HMD/m9oAm1QbYJNqA2xKwN+lGmZ/BtOePwAAAABJRU5ErkJggg==" InformativeScreenshot="71223089ddb1ba47ea7c380a104caaa2.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.reports.exe' cls='HwndWrapper*' title='Reports   v1.54 ' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Complete">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="41, 176, 28, 15" ElementType="Text" FriendlyName="'Fecha'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl automationid='CustomLabel' /&gt;&lt;ctrl name='Fecha' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl automationid='CustomLabel' /&gt;&lt;ctrl name='Fecha' role='text' automationid='' check:text='Fecha' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGaSURBVEhL7ZOxa8JAFMb7xwUyZMkiSNApBJykLkrpFDiQQKHFQWihECx0SMFNMlyxIqVQcHAIZGihFEQhS10cbrmvdzFqtGp1KA71gwy5e/e937337gQH1hHgCDAH4JyCKAqU1EcoT3Z3E6cECqHJ325aASCgfL+kaf0JAGcBvEoWqqiIZtbQjab7LPBQyaqiUhpyDkUkzsUAZYKqXFezqNIojo09znPQpEfOAU08pH4F+LgvQrd9kWCC/o0F/fJZxIZwLR12awjGhngoq6JdbAqQER4iQeTb0EseBsJv4JXmHi9XBszbIHHfNgOWi1AcpmQxC7xXh1Fo4I35sFOwX0EHneBrqQU8dGElHmw8wmjM4vXQtZbatLUC05umoGZg0nxduzYA8OgVbtKC2GN3AAbf/vka+EoFZjfcBNCrG8hfPGHI+H4VkOpf55Ehfnx48tlCUwzW6gw0z7TFDKwBaFdVFO/e49hHx9gPID3Bql5ArS2Sipj0KzBr3cUrWAPAggZOdRGrmXBIEYoYSOkhNQc4lI4A/x0A+AZTlb/t5uq7jgAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'push button PART_Item'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="846, 177, 15, 17" ElementType="Button" FriendlyName="'push button PART_Item'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl automationid='PART_Item' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl automationid='PART_Item' role='push button' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAAVCAYAAACkCdXRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACASURBVDhP7dTNCcAgDIBRpxUH8OwG7uAKuTuCe3h2AktKKpX4g8VLwQ8CBuRdBAUA5F0j8sYOtt4PMe89nepCCHTidTEpJQMRUkrRxutixpgKfCCt9b236mIppQI65woUY6QbvOEDvMEZhA0xDEFr7RTCpthKB1tvL9b6y78N5AvjxvV+A3r0HQAAAABJRU5ErkJggg==" InformativeScreenshot="6e737dcac458fecb1ae20e58bf7b9f80.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.reports.exe' cls='HwndWrapper*' title='Reports   v1.54 ' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Complete">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="517, 176, 83, 15" ElementType="Text" FriendlyName="'Unidades Gestion'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl automationid='CustomLabel' name='Unidades Gestion' role='text' /&gt;&lt;ctrl name='Unidades Gestion' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl automationid='CustomLabel' name='Unidades Gestion' role='text' /&gt;&lt;ctrl name='Unidades Gestion' role='text' automationid='' check:text='Unidades Gestion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFcAAAATCAYAAADlAZEWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQmSURBVFhH7Zb9a1pnFMf3xxkliixGAqExRYiWW5AuZSQQTNsgJS5U6BbClh8smqxCtmDKtmCFJkEQlsBGQgxYUsLKXIgtUmaKFeXi8+3zcl+ttzVN3A/DLwh6vPc853ye85zzfIG+eqY+3B6qD7eH6sPtoS4Fl8jnKFfeKb/+f7psfhpcQo6xKgWRKLYUC7ATdSCSlZVfH4rkHuDL6TTOCFEsQuR4FVIwgWLLbLfS8aqEYKKIVpufi4hU8li66cHggA02lw/htSM0PsOfMRar/LrVpeBa6b+GS0gVmTkXAst/4t8mgVx+ivvecfywr+fSra5io1V1BZfDGpvB3C03BmwuhFYKvCrIThSOSBYy+84q54byfzSCgAJXrygHhr5aQaEhgq7kl3DDPUCrLIRoJKAlJBfXEb42yP1MfJvDa+ZbLmL97nW4aVW6fN8g+8qcOCE5PHBNYq2k2w/TMTz+vcq/a2s5RjGtVHQnnwys3UYrn34CLB5Tfn8g/vWwyEP6DrnXYi32ztjMHG4puawUGtzO1D1cp4QEfbG5vwy/J4Y8A2dY/DDux8hCDm+JjGKSBhkQcHcXvQjG6WY0y9iYseNepk7XOkTcP4KF3FueZFKyi2TI3/hpcpg+8wqkXsAjyYNYvsWPp2vqZ/zTaHLfnljeVFmkuok7jgiyshk6E5HzeOgNIs5i5xUtNsHKp6ktaPnJyD/0YnxxFzVSR+GRBGf4V7xRnndKCVo0Tewv+02xdQ9XrUSyg6iSiL54FZt3nJjfEi2E2xW49TenqLwTizF/HCKD4ZzHlgJDsxt8Mx0sj0NaOUZrdxHekVmkn9e4vV08PrsFXFPsepzEwmdnuIzNBN0gwYacpBBSCqzz81cK1/yuEa78MouYOmjU42bwx6TB5ZDEc+pHQK/jRSaGoHsQo9MJ7ClHUpWxcgXotqNt8Mc+PCcLn51hsZwDen4GBp8Fl5AzpKfsF6hcffjpcEWl3P7xOWp0QVPlGipUs8vPcN9gVyWfl1GuNukRL2Pve3oM57e0BJhEzw0h9Zdu03wWkwgaNlKVlc/OsGjrChoq9yyNqeELVa46cQ84iHopjVmnCPjTcI09V/Qk0XNPkAp5EN2mvbX+Ao9vq73V0HN5bzXbI5lTOnTqKD3dwDM6aE5SIXju/YZT2tfKGzMd4Mq0t49iJLKJlzUaV72EddrfxUZmMOeWED+oUZDn2HvyC47oULXyyWBN0BlhhtXWc5MhuGf1nvtJuEzGu6JjSMJC5kRM1i7gWt0WKtsx+OkkdYxOIxr2aYF/7LZw9zrzI6by9mmDD7318DUel8sXxtqRPpFVGae/zTEEfzipHXW21k2PuIH4wikcsA2w8CnvLmFscACTa6UP81NvPW23ha7g9nW16sPtofpwe6g+3B6qD7dnAt4DUuqhWm1jeF8AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Nombre'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_4" Text="[in_UG]">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="31, 1, 851, 22" FriendlyName="'Name'" FullSelectorArgument="&lt;ctrl automationid='PART_GridControl' name='HeaderPanel' role='pane' /&gt;&lt;ctrl name='Name' role='column header' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PART_GridControl' name='HeaderPanel' role='pane' /&gt;&lt;ctrl name='Name' role='column header' automationid='' check:text='Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA1cAAAAZCAYAAADdeNRxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKXSURBVHhe7d0xSytBGIbR/Ek7O/+DpdhZ2ljZaGFnZysIdoIpBBEsFEQEETGohSIKc3nnMmENauLdJhfOB4fJbiakfpi4DnZ3dwsAAAD9DBYWFkomKwAAAL/TekpcAQAA9NB6SlwBAAD00HpKXAEAAPTQekpcAQAA9NB6SlwBAAD00Hrqx7jK7OzsjK9PT0+r7p5/cXNzU/b39798DwAA4H+SyTo1ru7u7sbX4goAAOCzTNapcTUajcanV924Wl5eLg8PD3XP4+Njvc79hNP9/X35+PgoLy8v5fDwsLy/v1ebm5vjPdH2bGxs1PtPT0/1+/JerofDYd2Tz+7t7dV7AAAA8ySTdWpcJWpub2/rdTeurq6uysXFRX19fn4+3pMwynVe59QrwbS4uFhOTk7K9fX1eE/3sy2msvf4+Li+XltbK29vbzXatra26uvcBwAAmCeZrFPjKmtOk7a3tz/FVUKonUStr6+P4yeh1H7yl71nZ2f1de7lM5N7cmrV7mdtp1h5v0VX5IQr39OuAQAA5kHrppniqp1edeMq00Kou3cyrtr+38ZVPjc53e8DAACYB5msM8VV5PSqBVaun5+fxydXq6ur355c/WtcHRwcfDq5AgAAmEetm2aOq5xeZVosdf/mKj/96/7N1Sxx9d3fXLW4ys8QX19fy8rKSllaWipHR0f1PgAAwDzJZJ05riLx02IpD5rIUwIzk08LnCWu8nCLr54W2P3pX54WmCcFZt/l5WV9MEZ7DwAAYB5ksv4YVwAAAPys9ZS4AgAA6KH1lLgCAADoofWUuAIAAOih9ZS4AgAA6KH1lLgCAADoofXUoL4yxhhjjDHGGNNrBrejYf1fVFkBAAD4ndZT4goAAKCHvz01LH8Aiye++aQczVEAAAAASUVORK5CYII=" InformativeScreenshot="ad0cbe3e8ce9571fc3dd3683cc269de0.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.reports.exe' cls='HwndWrapper*' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Complete">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="35, 4, 38, 15" ElementType="Text" FriendlyName="'Nombre'" FullSelectorArgument="&lt;ctrl automationid='PART_GridControl' name='HeaderPanel' role='pane' /&gt;&lt;ctrl name='Name' role='column header' /&gt;&lt;ctrl automationid='PART_Content' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PART_GridControl' name='HeaderPanel' role='pane' /&gt;&lt;ctrl name='Name' role='column header' /&gt;&lt;ctrl automationid='PART_Content' role='text' check:text='Nombre' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACoAAAATCAYAAADmtp8+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVEhL7ZNBq4JAEMffl/TWze/QMbp59OLJSx38BF0DwZtQB0EEDwUiQUgU5cGIgnn8B2ZZTcEXHnrgwh93Zmd3fs7u/BiGQf9BI+jQGkGHVg0Uw/M8ZcdxzNJjPtHhcKD1et261ldvoEVRKPurQS+Xi6qqDjqdTul8PnPM9XplG35AnE4ner1eVFUVBUFAz+eT5bquioEkxnEc9t9uN86HNdjb7ZZjsHe1WrFP9AaKgOPxyLYOmmUZ7XY7nqdpqmKQBDbmuA0kn0wmFEUR5XmuYvS9AobYzWbDc8uy6PF4cAEWiwXP4Re9geKLv1wulzVQHCoVsm1bHYSkcq2ITZKE5/BhTzMG1RQ/vlJdrMsPQKg88ojdCipV1UEx5FA9tgkq8X8Fxb7m0PO1gkKoqsDCLstSVXQ+n3dW9FNQ3/drFW2qExRVxZDE+hvF9epvtA9o1xsVUDy1+/1Os9mMTNOkMAzZL+oEhXCQJMYjR7djNLu+Dygaq63r9etF16PjEbff77kpZa0G+s0aQYfWCDqsDPoFdCZS+N3NMCsAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                          <uix:TargetAnchorable.PointOffset>
+                            <uix:PointOffset Y="20" />
+                          </uix:TargetAnchorable.PointOffset>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Nombre'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="1, 44, 30, 19" FriendlyName="'No seleccionado'" FullSelectorArgument="&lt;ctrl automationid='dataPresenter' /&gt;&lt;ctrl name='RETA.Shared.Entities.Applications.Distribution.Entities.Manageme*' role='list item' /&gt;&lt;ctrl name='No seleccionado, Elemento: RETA.Shared.Entities.Applications.Dis*' role='client' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='dataPresenter' /&gt;&lt;ctrl name='RETA.Shared.Entities.Applications.Distribution.Entities.Manageme*' role='list item' /&gt;&lt;ctrl name='No seleccionado, Elemento: RETA.Shared.Entities.Applications.Dis*' role='client' automationid='' check:text='No seleccionado' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACEAAAAXCAYAAACFxybfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABpSURBVEhL7c6xCcAwDETR7D+AlvAq6TRECkFWcJDCpUnhKGCruQ8HRo3f1lrrx7kvn6o+70D4oXKBqMg/R0SgTwgRSW/UL0QmIhARiAhEBCICTUNkNyqNmBER6IXwQ+UCYWbL55/fb+sXt51A2g6ZyhcAAAAASUVORK5CYII=" InformativeScreenshot="83ae87313c61c85197925222de376b64.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.reports.exe' cls='HwndWrapper*' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="35, 4, 38, 15" ElementType="Text" FriendlyName="'Nombre'" FullSelectorArgument="&lt;ctrl automationid='PART_GridControl' name='HeaderPanel' role='pane' /&gt;&lt;ctrl name='Name' role='column header' /&gt;&lt;ctrl automationid='PART_Content' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PART_GridControl' name='HeaderPanel' role='pane' /&gt;&lt;ctrl name='Name' role='column header' /&gt;&lt;ctrl automationid='PART_Content' role='text' check:text='Nombre' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACoAAAATCAYAAADmtp8+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVEhL7ZNBq4JAEMffl/TWze/QMbp59OLJSx38BF0DwZtQB0EEDwUiQUgU5cGIgnn8B2ZZTcEXHnrgwh93Zmd3fs7u/BiGQf9BI+jQGkGHVg0Uw/M8ZcdxzNJjPtHhcKD1et261ldvoEVRKPurQS+Xi6qqDjqdTul8PnPM9XplG35AnE4ner1eVFUVBUFAz+eT5bquioEkxnEc9t9uN86HNdjb7ZZjsHe1WrFP9AaKgOPxyLYOmmUZ7XY7nqdpqmKQBDbmuA0kn0wmFEUR5XmuYvS9AobYzWbDc8uy6PF4cAEWiwXP4Re9geKLv1wulzVQHCoVsm1bHYSkcq2ITZKE5/BhTzMG1RQ/vlJdrMsPQKg88ojdCipV1UEx5FA9tgkq8X8Fxb7m0PO1gkKoqsDCLstSVXQ+n3dW9FNQ3/drFW2qExRVxZDE+hvF9epvtA9o1xsVUDy1+/1Os9mMTNOkMAzZL+oEhXCQJMYjR7djNLu+Dygaq63r9etF16PjEbff77kpZa0G+s0aQYfWCDqsDPoFdCZS+N3NMCsAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Aceptar'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="381, 473, 66, 20" ElementType="Button" FriendlyName="'Aceptar'" FullSelectorArgument="&lt;ctrl automationid='PART_OkButton' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PART_OkButton' role='push button' check:text='Aceptar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEYAAAAYCAYAAABHqosDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMUSURBVFhH7ZXPS2pREMffHxdFSUVCZKnQDyzMhUKCRSAURVDYTxCyVuEmSiMoUQtJXUhZbYIKNOx3Wlk7t/Ped+BerHfPwvusHngXHzx3Zs7cO19nzvlVKpVI4280YQTIwmxsbGj8QVGY9/f3mkYozNvbW02jCSNAKEyxWKxpvkwYv99PNpuNXl9fFf1qOT09pb6+Pnp+flb0VwuhMCjoX3A6ndTQ0ECXl5eKfrWcnJxQb28vFQoFRX+1EArz8vKimlwuRyaTiaanp7lzJHs2m6X+/n6qq6ujwcFBuru7Y3skEqHW1lYWcmVlhW2rq6tkt9vZrtPpaHt7m0VpbGzk/T09PZTP53mvXq/nvV6vl/cirqurizo7OymZTMrvr4QvEWZzc5PGx8dpd3eXRkZGZPvk5CTNzs7yem5ujpaWlri4jo4OisfjdHFxQe3t7TwuEGZ4eJgeHh5oa2uLuru7OVbqGKyRx2AwyHubmpro+vqaYyAmfqV3V4pQGMywWtxuN62trdH5+Tk1NzdzB8E+MDDA/yDWZ2dntLe3R8fHx1zo09MT20dHR1lYCLO4uMg2+JAHHfY5HnnwCxCD/J9j1CAUBjOshsfHR25//Ft4xshgDLDGhycSiQ/xOzs7PBrlrK+v80hBGCkOe29vbymdTnPReA/swWCQR0nai/yfY9QgFAatqoZwOMzzXl7o2NgY+9AxaHusb25uuKNSqRQXgZEpzwNhFhYWeA0fhMGeo6MjOf7q6opaWlq4SxCHGOQvjynPWQlVF8bj8dDMzIz8fHBwwOcAxmBiYoL9sM/Pz3PhKK6trY329/e5EBzWOCcgjMvl4i4JBAJ8xsCPoqU1uhLdkslk2I4z5suFwXyqAR8djUYVbbi6LRYLd5HD4eCzB/5QKCSPw9DQEN9ePp+PxxAdId1KiL2/vyez2UxWq5VHZWpqiurr6zmf0WikWCxGh4eHfGshtvw7KkEoDF76k0AYdJWS7zsQCoM2/EmWl5dZGCXfd/DfCvPTCIXBfNYyQmFwi9QyQmE0FITR+IgmjCIl+g2MUWGp2uNvVAAAAABJRU5ErkJggg==" InformativeScreenshot="d034ff780d65cbac61387bfb5e5e4ddf.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.reports.exe' cls='HwndWrapper*' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="35, 4, 38, 15" ElementType="Text" FriendlyName="'Nombre'" FullSelectorArgument="&lt;ctrl automationid='PART_GridControl' name='HeaderPanel' role='pane' /&gt;&lt;ctrl name='Name' role='column header' /&gt;&lt;ctrl automationid='PART_Content' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PART_GridControl' name='HeaderPanel' role='pane' /&gt;&lt;ctrl name='Name' role='column header' /&gt;&lt;ctrl automationid='PART_Content' role='text' check:text='Nombre' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACoAAAATCAYAAADmtp8+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVEhL7ZNBq4JAEMffl/TWze/QMbp59OLJSx38BF0DwZtQB0EEDwUiQUgU5cGIgnn8B2ZZTcEXHnrgwh93Zmd3fs7u/BiGQf9BI+jQGkGHVg0Uw/M8ZcdxzNJjPtHhcKD1et261ldvoEVRKPurQS+Xi6qqDjqdTul8PnPM9XplG35AnE4ner1eVFUVBUFAz+eT5bquioEkxnEc9t9uN86HNdjb7ZZjsHe1WrFP9AaKgOPxyLYOmmUZ7XY7nqdpqmKQBDbmuA0kn0wmFEUR5XmuYvS9AobYzWbDc8uy6PF4cAEWiwXP4Re9geKLv1wulzVQHCoVsm1bHYSkcq2ITZKE5/BhTzMG1RQ/vlJdrMsPQKg88ojdCipV1UEx5FA9tgkq8X8Fxb7m0PO1gkKoqsDCLstSVXQ+n3dW9FNQ3/drFW2qExRVxZDE+hvF9epvtA9o1xsVUDy1+/1Os9mMTNOkMAzZL+oEhXCQJMYjR7djNLu+Dygaq63r9etF16PjEbff77kpZa0G+s0aQYfWCDqsDPoFdCZS+N3NMCsAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Búsqueda'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="1682, 178, 46, 15" ElementType="Text" FriendlyName="'Búsqueda'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl name='Búsqueda' role='push button' /&gt;&lt;ctrl name='Búsqueda' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl name='Búsqueda' role='push button' /&gt;&lt;ctrl name='Búsqueda' role='text' automationid='' check:text='Búsqueda' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAATCAYAAADSz14iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALiSURBVEhL7ZSNaxJxGMf7J49zWYN5VCdyHhmb3FqM2ZiahAtZI7YlOcZw9kLMJSEWKbKtEAuTMWINc3MdcQhHCcfh79vdeTrXdq0XVlL7wnHHcw/P8/s8L78z+Ed0CtJr+v9AmmIWEddF3HhahUqIae0ddUAqCQEURRkPbWcxnihBNg9MiIL3yyGMzRc7tj8lUklAcMdQPibvARB3rGx8N8pxDDOjeLz99yv/WyCkuYW4141YmRwIROo5RDxBpGvad2MTyyEO52kadlcY6aqqda4JMT8H7wANul9AOMAbMQmpICGY8UgduYgHwXTtgD9lY+Azp6Ap5jHnHQBN90MIB8C38x+Rs61DIHpwubSIEXcEWckapL46Bf7afWwqDZTjw3BFcqgrG1gYZOBPbkNRq0gFme+DyC9xh/cgWpCh1p4h7BKw9E7BxoIXzlvPsae2YtvN/LtJH9hAClVFRnGOBxd909nXI3eEos7Ba+6DFcjnwiz4CxN4VJI6wYiYRpBr/de1XxwLkO7YREQ6yCGUKZtv0YhRz0VwyfRR5Y/YqyuGXY/tCKZRM3MfOVpGdZwcZgtfrEerKWMzPa2NxVkwo/NYE7XR0n0dPw5iHLJTPP1xaPZCx1dXN0hTKiLh10er5X8sCCESXkxePly1LpB2dYgqYi06BGcoA/EnO9LcisNrxm6r3Rn9v659EAXl2BU4JzPYUcgvdGQ3CR8bQKqqQFqfAc+0Dvrh4QgYfxLbiorKygQ4HcRyR3aR9LEIpKpQpHXM8EyrSJ8yuMkO4d4rbTxVCa9XnqAod+2ItgulxfaO1LE6xWFw4a0WW0T+NmcN0mmxzQHhbh6iqo+QiOw0hz7KBodHAG9W3LhBgk7Nrt0g7DgSJVk7cPetNQj/mMsE0ezZaXB9FGwODwS+VfGWfxRXmT5QtB3seBxFSbW8tRobD3Bd86X7PfCHBLj8Kex8C3IS6u7ySesUpNd0CtJbAr4CfgGVn6Ekq6QAAAAASUVORK5CYII=" InformativeScreenshot="7ca464da743815206c3c594c5feb4f27.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.reports.exe' cls='HwndWrapper*' title='Reports   v1.54 ' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1645, 173, 120, 24" ElementType="Button" FriendlyName="'Búsqueda'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl name='Búsqueda' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='Informes' /&gt;&lt;ctrl automationid='FilterView' /&gt;&lt;ctrl name='Filtros' role='grouping' /&gt;&lt;ctrl name='Búsqueda' role='push button' automationid='' check:text='Búsqueda' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAAcCAYAAACj6tvkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUuSURBVGhD7ZrtTyJXFIf7TxJ8aY0LsUXJiKVhEbtmXWoW0RitxGqzS7VszKrYNnXZkorWFGPctRpalRCtW+LLarESEmI1iMyvc4Y746Dg2i/roPMkE5jLzSWZZ86599yZD6Bxp9CE3zGuJfzs7AyxWAyjo6Noa2tDU1MTamtrodPptOMGDrr25IBc+Hw+rKys4PT0lNm6miuFk+jZ2VlwHIfm5mZReCQSwfb2No6OjlgvjfcNXfvd3V1R9Pj4OFpaWlBXV4dAIPBO8SWFHx4eipJNJhOWlpZYq4Za2djYEKOegpMCshRFhVP6pjumv79fi+QygqKbUjyl/MXFRdZayCXh+/v7YlQvLCywFo1yY21tTQxYivqLFAinOdtqtWJ6epq1aJQrtNaiwL2YoQuET05Ooru7m51plDuU3r1eLzvLIwun/E9pgFJ6uZBLhOExf4zOn3eQ5XnWqiFB0W0wGMQFuIQsnCZ5p9PJztTBlt8h1576ahPa/atIM7E8n8FfL7rw6FlEbntf8Ft+OBp9iJbBTTY4OCiWaxKy8L6+PgSDQXamDkh4oy8qfj+OjqHF+BA/xm/+IpeTcCqpW1tb2ZlCODXS6k5NKIXzuTcYszfCF+ULLjifmoPH6kZoT/h+vI4XXRw+0utRbe5BaCcrZIIcEvNe2O/poa9xoKfDIo7J81vwO9h4fApzHivcob2C/roKI5wsq+QS8/Da70Gvr4GjpwMW6f+L/KeaODg4EBdvErLwhoYG8Uc1IQknCenV53jQ6EE4WVp4aqEfltYJrGeOER1rgdkzh1QmhhGbEa5AHJnsDoJu49XC04v42mLF0HIa2b1f0GN2YPzPDGIjdtR/OYv9bH7savb/bwNOmDqC2MmkEfFawA39obr1BE2JErJwuguUk7saUM7hOt2HsLP5upTwo+WnsNQ9xg+rSfmi84kQ3Fz+d+L8JiohXDk2n0DIzaFrJso+E+IYqTkPPmF9sum/sZ/KiO00tsEdwh77b7VQVDjtx9IOm5pQpnQx2uo5PF3+t3RKz6WxHhoQ0nEVjA+f4VVCSOnU13B94aJM+SajwyC0L8t9CaXwXDICv4tSer6/2oRTEFP1JSELp/pbbRsuSuE8n8SvvZ9ejkKFcCna+GwCr4buo75rBon/GeG5N2Ows7ElpEin34lz4RlEfZ+hvncGuxlelRFOD1jomYiELDwcDqOzs5OdqYOSEf42AKepA8GdDJKvn8BizAvd/v4BjK4A4pkstl4+BkfCS87hbxFwmtAR3EEm+RpPLMb8zfTPDLpN9/Htb8K0kE3i95c/IZJWzOHCXL36XJrDU1jo52AbWRPGTmD+K051woeHhzExMcHOFMJPTk7EIj2VSrGWm4eEy6m1wgDHN/NIZCl1JxAe4FCpq4DB6oCFRbC4YnbXC+3CitnUDv9qWhCrXKXb4HpkZsKF9vAAuEodKgxWOCz5CM73H8Lnxkro9NUwtY8hksyWXKUfx77DF0JffY0Vri4HzK4gdlUivNhmmiycoOfdVKjfZpRZ47ZDkU37K0oKhFOUU3l2m59/3xXhm5ubYnRfrLwKhBNSx2KP1jTKA3obptSLK5eEE7SvTg/R6fUZemSqUT7Q9ji5m5qaYi2FFBVOxONxMb3bbDbxu4a6oV1SeqmRFt5UipWipHCCHq9RlNMgUp1O6YLmeo2bhVbgtPqml0x7e3vFqKYS7F1V1pXCJUg81em04qOor6qqOi+XtONGDnJALqRAvG45fS3hGrcHTfidAvgPAUPHfhxNdswAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" FilePath="C:\Users\des_RPA2\AppData\Local\Apps\2.0\1R65GCJE.PH3\3RDBQX45.CGD\reta..tion_460f06de07ae0cc9_0001.0036_d55eeddbab343541\reta.wpf.reports.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKjSURBVFhHYyAVaBiYpcQW1L9Mq+7+j4zjixrf2noGzYAqoy5Q0zOOR7eQELb1DJ4O1U4+4BUQUkQ3mFSsYWCeAjWONBBX2PAGm4Hk4NSqrr9QY4kDqZUdv7EZRCmGGo8fpFR20sRyGIZagx3EFNS/wKaJmhhndHDx8Epg00ALbGTtXAO1FgGwKaQlhloLARJyirbYFJGCj5y+9B8bwKYWhD3Ck7dBraee77cfPAG1FgGwqYNhqPXUc8DvP3+g1iJAYHIBVrUgDLacl09QHpskqfjv379QK1FBQFI+GCeWtWHoCcsou8EQmlZyFV2CEAZZVtg6Bc7//v0n1DoISClp+L/v8EkwG+YAEEYPDXCWjC9ueo8sSAgjg4LmSf9//voF5UFARkXT/9jcSrCFW/YcRHEADMcVNcHNYwC5AtkCfBhXMMNAVHbF/9D0YjAbm8XoGGQm0Q74gyWBIYO4ghqwoVv2HgLz0S3DhYmKgr9//4ENhYHIrDJg0P+G8oBZrazxf1x+NZhNsgMIJcKfP1HjOCStGK4ZFCVpZQ1wNgiQ4gD/xLy/BLMhMgjPLP2fUFjzPwEY3B8/fQYbEp5e8v/Fq9dkOcAlOO4GuCzAZjEM5zT0/7984+7/CKDlIE0gAHIACHRPXwCmyXUA2HIQwGYxOm6YMA+sCQRgDpizbC2YptgBhCqjgqaJcENBgBoOsHTzR1RGIIDNYhhOr+n5H5JaBNYYnFIIp0ElG4gOSoHQyGLIlmHDUGsRgJgGSRKwPMdmGKlYXd8Ms0ECAsQ2yUC+xGYwMRic9fABYhulyeXkhQbUGvyAlGZ5EDRtEIOhxhMHSOmYpFR2YLUQjgkFOy5AatcMW9qQV9Mhr2uGDEjpnCZVtIMt1rd2prxzig1Qt3vOwAAAsFvwXPCKPOUAAAAASUVORK5CYII=" InformativeScreenshot="2260a4cd2f6beb6ab98b05d85b001f34.png" Selector="&lt;wnd app='reta.wpf.reports.exe' cls='HwndWrapper*' title='Reports   v1.54 '/&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

@@ -1,0 +1,89 @@
+{
+  "name": "RETA002_Volcado",
+  "description": "Proceso de volcado",
+  "main": "Main.xaml",
+  "dependencies": {
+    "DEVOL_FWK_LIBRARY": "22.4.22",
+    "DEVOL_UTILS_LIBRARY": "[1.0.1]",
+    "RETA_LIBRERIA": "22.5.31-alpha",
+    "UiPath.Excel.Activities": "2.11.4",
+    "UiPath.MicrosoftOffice365.Activities": "[1.14.1]",
+    "UiPath.System.Activities": "22.4.1",
+    "UiPath.UIAutomation.Activities": "22.4.5",
+    "UiPath.WebAPI.Activities": "1.11.0",
+    "UiPathTeam.DotNetZip.Activities": "[1.0.7222.31886]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "21.10.0.0",
+  "projectVersion": "22.12.2.3",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": true
+  },
+  "arguments": {
+    "input": [
+      {
+        "name": "in_EntornoProduccion",
+        "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "required": true,
+        "hasDefault": true
+      }
+    ],
+    "output": []
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "6fc4848e-2658-4f87-9230-777b8f3f5202",
+      "input": [
+        {
+          "name": "in_EntornoProduccion",
+          "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+          "required": true,
+          "hasDefault": true
+        }
+      ],
+      "output": []
+    },
+    {
+      "filePath": "Tests\\_UploadQueueItems.xaml",
+      "uniqueId": "7e7a34fb-7607-475e-8f6e-bcf6b49ac0dc",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {
+    "iconUrl": "https://raw.githubusercontent.com/AdminDevol/MailDevol/main/Devol_bola.ico"
+  },
+  "targetFramework": "Legacy"
+}

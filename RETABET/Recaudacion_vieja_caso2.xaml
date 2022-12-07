@@ -1,0 +1,405 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Recaudacion_vieja" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:a="clr-namespace:Attended_Asstistant;assembly=Attended_Asstistant" xmlns:di="clr-namespace:DEVOL_FWK_LIBRARY.InfoPantalla;assembly=DEVOL_FWK_LIBRARY" xmlns:du="clr-namespace:DEVOL_UTILS_LIBRARY.Utils;assembly=DEVOL_UTILS_LIBRARY" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="INFO" Type="InOutArgument(a:Attended_Assistant_Form)" />
+    <x:Property Name="in_Codigo_Barras" Type="InArgument(x:String)" />
+    <x:Property Name="in_NombreArchivo" Type="InArgument(x:String)" />
+    <x:Property Name="in_NumeroCertificado" Type="InArgument(x:String)" />
+    <x:Property Name="io_TransaccionFinalizada" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="out_IntroducidoPor" Type="OutArgument(x:String)" />
+    <x:Property Name="in_excepciones" Type="InArgument(s:String[])" />
+    <x:Property Name="out_arrayIdsCheckeados" Type="OutArgument(s:String[])" />
+    <x:Property Name="in_indiceCodigo" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="io_DesgloseCodigosBarras" Type="InOutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>2022,3324</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Recaudacion_vieja_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="94">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Attended_Asstistant</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Forms.Layout</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>DEVOL_FWK_LIBRARY.InfoPantalla</x:String>
+      <x:String>WallpaperChanger.Activities</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>DEVOL_UTILS_LIBRARY.Utils</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="86">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>Shanslab.ScreenResolutionManager.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>WallpaperChanger.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>Attended_Asstistant</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>DEVOL_FWK_LIBRARY</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_21197608</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_25263677</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_32063762</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_1618635</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_3619050</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_27788863</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_4835176</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_52943193</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_3322567</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_53943490</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_40176338</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_33547876</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_54118015</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_51333834</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_42287573</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_62194446</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_525493</AssemblyReference>
+      <AssemblyReference>DEVOL_UTILS_LIBRARY_Expressions_903711</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Recaudacion_vieja_caso2" sap:VirtualizedContainerService.HintSize="2032,3259" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Registros2" />
+      <Variable x:TypeArguments="x:String" Name="NuevosDigitos" />
+      <Variable x:TypeArguments="x:Int32" Name="res" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <di:UpdateINFO sap:VirtualizedContainerService.HintSize="1990,132" sap2010:WorkflowViewState.IdRef="UpdateINFO_1" in_clear_form="False" in_error="False" in_mensaje="Empezamos caso 2" in_warning="False" io_INFO="[INFO]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Obtener Codigo Barras workflow" sap:VirtualizedContainerService.HintSize="1990,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="RETABET\ObtenerCodigoBarras.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Ultimos16">[in_Codigo_Barras.PadLeft(16,CChar("0"))]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_NombreArchivo">[in_NombreArchivo]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_DigitosNuevaLinea">[NuevosDigitos]</OutArgument>
+        <InArgument x:TypeArguments="a:Attended_Assistant_Form" x:Key="INFO">[INFO]</InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_excepciones">[in_excepciones]</InArgument>
+        <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <If Condition="[Int32.TryParse(NuevosDigitos,res)]" sap:VirtualizedContainerService.HintSize="1990,2671" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="1569,2513" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: RETA.Wpf.Taking   v1.50 " sap:VirtualizedContainerService.HintSize="1527,2421" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="98bc270d-df80-4129-bca1-74cd9ff8c9a7" Version="V1">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence sap:VirtualizedContainerService.HintSize="1493,2132" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1451,2038" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Búsqueda recaudaciones'" sap:VirtualizedContainerService.HintSize="1409,156" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="919, 206, 218, 22" ElementType="RadioButton" FriendlyName="'RecaudacionId vieja'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl idx='5' name='RETA.Wpf.Applications.Shared.Classes.Utils.EnumItem' role='list item' /&gt;&lt;ctrl automationid='radioButton' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl name='RETA.Wpf.Applications.Shared.Classes.Utils.EnumItem' role='list item' /&gt;&lt;ctrl automationid='radioButton' role='radio button' check:fulltext='RecaudacionId vieja' /&gt;" Guid="d5fbaee2-a12a-4b8d-aab8-c2c7a2016bf0" ImageBase64="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" InformativeScreenshot="08bf9e510afe822aae2041129778953a.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='HwndWrapper*' title='RETA.Wpf.Taking   v1.50 ' /&gt;" SearchSteps="FuzzySelector, Image" WaitForReadyArgument="Complete">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="52, 126, 257, 32" ElementType="Text" FriendlyName="'Búsqueda recaudaciones'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl name='Búsqueda recaudaciones' role='text' /&gt;&lt;ctrl name='Búsqueda recaudaciones' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl name='Búsqueda recaudaciones' role='text' /&gt;&lt;ctrl name='Búsqueda recaudaciones' role='text' automationid='' check:text='Búsqueda recaudaciones' /&gt;" ImageBase64="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" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Double" DisplayName="Type Into 'RecaudacionId vieja'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1409,216" sap2010:WorkflowViewState.IdRef="NTypeInto_5" Text="[CInt(NuevosDigitos.PadLeft(16,CChar(&quot;0&quot;)).Substring(NuevosDigitos.PadLeft(16,CChar(&quot;0&quot;)).Length-9,9)).ToString]">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="149, 239, 150, 21" ElementType="InputBox" FriendlyName="'0'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl idx='3' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl automationid='' role='editable text' /&gt;" Guid="e3eb1672-01f9-4d3f-9f45-1f715087a778" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAZCAYAAADJ2zdhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEFSURBVGhD7dgha8NAHIbxfbjAREx1qCuB2RI55mJKRF3FoDAq5ubm7itUTBQquk9QM1VRc29X2gRSWPhnl556fvDCfYCHkLsHAREQGqJoQkuShLHBV2uFBgyJ0BBFUGhVVV1PQLeg0PjywYrQEEWv0LYfzxqnvzeIdKyZ2xMazMyh+Z9PvaRTvX8fdfh6VT6aExrM7KGtF8qeVtp5L+83Wk5yQoOZPTRXKind5ey3esszQoNZQGjt116gS0BoE0KDmT00/tEQwB7a0al8zLXccOtEf+bQzvZuxjsa/qVXaLcIDVaEhiiCQiuK4noCugWFBlgRGqL4MzTGhl6tCQ24J0JDBNIJoRfA7xzxzZ0AAAAASUVORK5CYII=" InformativeScreenshot="ac8ed17dd1d4a2029f107ae80b5b3eae.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='HwndWrapper*' title='RETA.Wpf.Taking   v1.50 ' /&gt;" SearchSteps="FuzzySelector, Image" WaitForReadyArgument="Complete">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="39, 239, 100, 21" ElementType="Text" FriendlyName="'RecaudacionId vieja'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl name='RecaudacionId vieja' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl name='RecaudacionId vieja' role='text' automationid='' check:text='RecaudacionId vieja' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAZCAYAAADdYmvFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUGSURBVGhD7VdNSyNJGN4fF+hDX/oihGBgITTkMASdgyGIsGEaMgHBJTCCQiCTZTxEcAno5tBLVoIM8+Ehh4YgrogoZkkOyaUPdaln36ruTldHM6OOLs3SDzSkq6ver6fej/yEBLFGQlDMkRAUcyQExRwJQTFHQlDM8b8gyB0PMWXcf/tvwd0xhlPmv90F5y7GwykYf5p9M4I4t2GlUkjJR4Px8xu0LxYrfm5wPkDDNNEYPM4Rzs/RzKfx7uvjA8AHDZhmA4O54HmxsGA/IKjnzTzS7776b3fB//kdRb2C7vMQ5BklWO/vmtA2DjF5ouDH4qkE/Qieg6CXxr0EyXfFeOa0UExrlFk6crUeRrTGOYPTKiKtUcbpy6jaI+/cqIda3oAmsnClCYdKz3zwbSsFyxbrI/RqOeiUtfqrCso5b48nex3L+pxsZb9mrKDpsIhsce6i/WZ2br3lyNLi+VbAxi9paVe6Yns+KD5y5qBVDL5bWJsjiLMeNo1VtG48PZ2yRj4wDBomzMbA2yN8z+myAqWLLd939eIL+/MwKGaB/QJsOlxYJh+QQZfYKxgod0ZUb/vYNQ1sndAe4ZxRxtEtA7vdx5pGZ8mgky0DZp0Cw26xv5aic9EgCswI6u8gu7SJnisuQR1myg/0TQurJLsz4nA//opMrg6H7GK2Bc3cRZ/2y3UZXIWgyz0UtBIOpE1HKBtZ7PSFP8K3JdJJPozaKGl+oBWCJocb0Ff38Df5MOqUYcwTRKTYli5J4fwU25kS2hM+I0h8722Gvh+VDay2bnzdflxPtmCY5AtjuN1fQ6rckRfoU20JevXY1xTFgh5ET5YCRwFSFQicbmeQb56DkRMpy5ZrnE/gHB/DIYPd8TXGFEABQYRn/P0ETdolaJWuXPP0+IFmUwz9xiqD6Ot36rnwtvIrfPnjC65UgojAwGmBbkW7GyR1v0JQ4JeAqlOFsDezfQp+3kTePxcSFPUx8C2imwaK67Erv0tbfRnfwr0ZxHqbMAp7uBRCpbEKcfQIg4RhAUEq2EUHVVniwr2LCIqUB5UgKgWfG36Jk3I8uwLCVaiy520Kg/d9ggKbBBYRJDM738SALqcgSiCqI4yRfMiWiG52gU7VK3Hy+1MJ8lLYLw+sg/I9xkYziGE6FKPuBO2ShtcfzuDS/odkUChDIeh0GxnK4L+oVKnBimYQja/XY9ITypY2KRkkyu1jMmgmexFB8mwJlpWVZV4gJMhB3e+hKlTdMqtef8AZVZgfyiCB/k4WxmaPnO1jJ0v1u3NLv11cHR3AFqVPODHrQQco6XSWiZHXwNuuS+l8hveFgKAbtFb9PjaiZpu924Pc/i4FxQ9ctwKt8Bv1A6rVf1aR8e2K9KDPNWSlg0rAIz2oA2tJ7UGejEUEhT2IdB7d7UEBTraWoElf5wma4HBDR77ep0tDF/bjAdpyiAl1i5HceNul7y7O3hdmBD16SJDv0tkNHFJfEVPc+rI3nRj5GrriZpMR4RSXQ63nTVojuypLk5YuolLKIEdN01uvyL1ienll+gQtmuJoomquiDJJU2PVQiFFA4OciJQpjuS37pni1OkvOsV9m6DvTXEB5CUptWd/PwKCBMIJlvxZXsdeny6qqntkoyriqKVRrFA/84efBw0JCV4GfEJT4wKyH4KEoBeElz2UkdXuk//wJwTFHAlBMUdCUMyREBRzJATFHAlBMUdCUKwB/AsH4wd3jFor1gAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Buscar'" sap:VirtualizedContainerService.HintSize="1409,156" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="1481, 243, 32, 14" ElementType="Text" FriendlyName="'Buscar'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl name='Buscar' role='push button' /&gt;&lt;ctrl name='Buscar' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl name='Buscar' role='push button' /&gt;&lt;ctrl name='Buscar' role='text' automationid='' check:text='Buscar' /&gt;" Guid="68be79e2-0034-4005-8e60-0e369b99cb1b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAASCAYAAAAzI3woAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIlSURBVEhL7ZP/axJhHMf7J+/y0lNSWhyjHTls3IhGw2UFA/MGQuGW6weRsf2yA1kjZE7WYixjJeEPNgzXhBA30TNv3PPuuec0a+hWEMMffMPBw/N87vN5fb5dw5BpBHSZhheomQqB4zj28YIXyuIuqoR0Xq9OfwCJapadzbKGuZsyXn0cEiBCTqAFRahZAtJMISSqyNJqkfYBlvwKVor0bB4hrfrhcfAQfLNYLRjsX/MoDXXCCY4X4JtdRcGgtqSBD8mHkJy0+qKMaKbKbK2Ygn8KAbft01JfoNbhOh7dDkIrDwYy8nFMyjHs6ybK2hx8QQ3H5BSpkAtKIg+d1JCJSFBWijgrJqGMhZGuEtQyEUhTSRSoPyumw/8S+3U7GUt9Z4jjrmN8YZvN0CAgFsQ1jfheBQZ9s0TaOcTkXrZnX95h832Z3tdwXKkzu/bBEuSOv9+L0FX/lp3s4YXswfyb08EtIy183Y7jwS0B7kAU6ZJh2wo9oK6I+Q07cbtlLOF/BiJt5GIyK/dAoMZ3lKs6ta3jU3IG3vtrODxXoa7Nj7dRSHefY6di/IcK6VsIexUkC23onxO0TXbA5uYTuJQE8npnLiygczOUXRhnSVm24owF3EJpYx5jfwv0a4Z4EXLkNUqdDcktB+DkeIh3pjEpdSrEtmyC3QsUeHHX3pzelt2A9Hjd3rJGDsuKBw7ejcCzp7gnhrFF7y8EGhaNgC7TCOhiAT8BxtdQF1MKFy8AAAAASUVORK5CYII=" InformativeScreenshot="2cd2f3ddc483546925a8fc62ddbf3629.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='HwndWrapper*' title='RETA.Wpf.Taking   v1.50 ' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Complete">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1437, 210, 120, 80" ElementType="Button" FriendlyName="'Buscar'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl name='Buscar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Búsqueda recaudaciones' /&gt;&lt;ctrl automationid='Filtro' /&gt;&lt;ctrl name='Buscar' role='push button' automationid='' check:text='Buscar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAABUCAYAAABA4VPlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVHhe7ZrvS1tXGMf3T5oZNeoidsZi41LSGpmrEzs3QchiRdlIq+6FP2r3wgbCrCM0ldpZuwyniKITJZ3ilLQSk5nq/S7Pyb0xicb6aub6PB+4kHvu4Qbu5z7POc859xMIrBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzBDhzLiU8OPjYywvL2N0dBTt7e1obm5GbW0tysrK5LiCg549OSAXw8PDWFhYQCqV0m1dzIXCSXQoFEJTUxNaWlqU8Egkgq2tLcTjcb2X8H9Dzz4ajSrR4+PjaG1tRX19PQKBwEfFFxW+t7enJDc0NGB+fl5vFUqV1dVVFfUUnBSQxThXOKVvemP6+vokkk0ERTeleEr5c3Nzems+Z4Rvb2+rqJ6dndVbBLOxuLioApaivpA84TRmu1wuTE9P6y2CWaG5FgVuYYbOEz45OYmenh79TDA7lN79fr9+liErnPI/pQFK6WbgMNiVLVMsVjs8D19hX9P0qwJB0W2329UE3CArnAb5jo4O/az0IeG23hn1+yQawP3PnPjpTxFeyMDAgCrXDLLCfT4fgsGgflb65ArXtHcIdNrQO6NBOwyiy9aLmXS0a0cLeOTy4PF6+vfJW4R6Xagpt8Ba14EnK5l69eRtCL23KlFmsaKu4wlWUum+Whx/jH0NR2U6e9ic6A/vq770n1bXXbirM/c0A1RSt7W16Wc5wqmRZndmIVd4cuMpvvm8E4FoceGppSHcdvrxJnGCaOA+6joD2NbeI9hVBc/IEhJaDGGfA57H6/iwPgbPDS9C+xpiYR8cd8ewkr4f/We5axBvDi63qlUK7O7uqsmbQVZ4Y2OjumgW6OGfLjd+ipsPXqgxvJhwJbGqFUOvd5BKXyO0owj8ztNo/fDXb3j2ezTdHsP2zoHqd7TwCE79frkvmZmgZ2SQFU5vQe7gXurkPnzt3Wv86KxBz6/vi6d0LYmtF0P4qt6Kanc/QpupTF/r2fSsnfyNl0OZlK5eqOsonNZjaYXNLOQJ144Q8TtVOi4qPP4PovuJdN8DLI7dg/3Ln7FREOFGn39n++H44ge83EmZPsIpiKn6MsgKp/rbTAsuRSM88RxeuwdjK0dILI+k03hG6OGz71DlGcFSQh+XSXjBGD7z4KZ6aaiv7R69EEls/tKDGyYWThsstCdikBUeDofR3d2tn5U+9PCzY7jFBqdvCpv6DDsy7EZlmQW2plbcdugRrmbpt1S7Nf1CPHyVmXmfztIr4Pj2aWaWHo9g2FODcks13N93447Ni+fpdjMKHxwcxMTEhH6WIzyZTKoiPRaL6S2C2TlvMS0rnKD9birUhesBRTatr+SSJ5yinMoz2f82P2trayq6CyuvPOGE0fG8rTXBHNDXMMU+XDkjnKB1ddpEp89naMtUMA+0PE7upqam9JZ8zhVObGxsqPTudrvVb6G0oVVS+qiRJt5UihWjqHCCttcoyukmRp1O6YLGeuFqoRk4zb7pI1Ov16uimkqwj1VZFwo3IPFUp9OMj6K+oqLitAaW40oOckAujEC8bDl9KeHC9UGEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEM0OEswL4DzidT10iRl74AAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DescargaDatosExportadosBusquedaRecaudaciones workflow" sap:VirtualizedContainerService.HintSize="1409,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="RETABET\DescargaDatosExportadosBusquedaRecaudaciones.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InOutArgument x:TypeArguments="a:Attended_Assistant_Form" x:Key="INFO">[INFO]</InOutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_nombreArchivo">[in_NombreArchivo]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_fase">2</InArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtRegistros">[dt_Registros2]</OutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_indiceCodigo">[in_indiceCodigo]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <If Condition="[dt_Registros2.Rows.Count = 1]" DisplayName="Si sale un registro" sap:VirtualizedContainerService.HintSize="1409,1144" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="884,985" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="sd:DataTable" Name="dtRegistrosBusqueda" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke BusquedaDeRecaudacionesPorDefecto workflow" sap:VirtualizedContainerService.HintSize="842,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="RETABET\BusquedaDeRecaudacionesPorDefecto.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_NumeroCertificado">[in_NumeroCertificado]</InArgument>
+                              <InOutArgument x:TypeArguments="a:Attended_Assistant_Form" x:Key="INFO">[INFO]</InOutArgument>
+                              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_data">[dt_Registros2]</InArgument>
+                              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_registrosBusqueda">[dtRegistrosBusqueda]</OutArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_IntroducidoPor">[Nothing]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_nombreArchivo">[in_NombreArchivo]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_indiceCodigo">[in_indiceCodigo]</InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                          <Assign sap:VirtualizedContainerService.HintSize="842,61" sap2010:WorkflowViewState.IdRef="Assign_13">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:String[]">[out_arrayIdsCheckeados]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:String[]">[new String(){}]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <If Condition="[dtRegistrosBusqueda.Rows.Count &gt; 0]" DisplayName="Si la tabla tiene  algun registro seguimos con el caso dos, sino pasamos al 3" sap:VirtualizedContainerService.HintSize="842,638" sap2010:WorkflowViewState.IdRef="If_5">
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="421,479" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke BusquedaRecaudacionCorrespondiente workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="RETABET\BusquedaRecaudacionCorrespondiente.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtRegistros">
+                                      <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtRegistrosBusqueda" />
+                                    </InArgument>
+                                    <InOutArgument x:TypeArguments="a:Attended_Assistant_Form" x:Key="INFO">
+                                      <mva:VisualBasicReference x:TypeArguments="a:Attended_Assistant_Form" ExpressionText="INFO" />
+                                    </InOutArgument>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                                    </InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_Codigo_Barras">
+                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Codigo_Barras" />
+                                    </InArgument>
+                                    <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_TransaccionFinalizada">
+                                      <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="io_TransaccionFinalizada" />
+                                    </InOutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_nombreArchivo">
+                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_NombreArchivo" />
+                                    </InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_indiceCodigo">
+                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_indiceCodigo" />
+                                    </InArgument>
+                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DesgloseCodigosBarras">
+                                      <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_DesgloseCodigosBarras" />
+                                    </InOutArgument>
+                                    <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
+                                      <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
+                                    </InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <du:ConvertDTColumType ConversionCorrecta="{x:Null}" Indice="{x:Null}" strMessage="{x:Null}" ContinueError="False" Datatable="[dtRegistrosBusqueda]" DestinationDataType="String" FormatoAmericano="False" sap:VirtualizedContainerService.HintSize="379,132" sap2010:WorkflowViewState.IdRef="ConvertDTColumType_1" SourceColumnString="Id" />
+                                <Assign sap:VirtualizedContainerService.HintSize="379,61" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="s:String[]">[out_arrayIdsCheckeados]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="s:String[]">[dtRegistrosBusqueda.AsEnumerable().Select(function(x) x.Field(Of String)(0)).ToArray()]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,286" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;No hemos encontrado registro o hemos encontrado más de uno, pasamos al caso 3&quot;]" />
+                                <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[out_IntroducidoPor]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[dt_Registros2.Rows(0)("Introducido por").ToString]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="480,513" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;No hay un solo registro, pasamos al caso 3 en el caso de rama 9 digitos final fichero, sino, fin&quot;]" />
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,288" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                            <TryCatch.Try>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[out_IntroducidoPor]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[dt_Registros2.Rows(0)("Introducido por").ToString]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[out_IntroducidoPor]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <Literal x:TypeArguments="x:String" Value="" />
+                                      </InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                          </TryCatch>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1936, 1056" FilePath="C:\Users\RPA\AppData\Local\Apps\2.0\Y0EEZY6B.T8T\7DO0OG2E.6L8\reta..tion_460f06de07ae0cc9_0001.0032_0ad43e250a8df0a3\reta.wpf.taking.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVaSURBVFhHnddpbBRlGAfwyhdNjBo/SIgfRBM1MTGBGBEE5IZWo2IMgmgLhh4sBcQeiFIDrSyCKKI0XhyFNJGIgRQxsQrS0IAFObqld7eFUnrQ2q702O52u8ff//PuDO2ys7MtT/ILZdp5n+e9Zt6JiRbIiNU9RDMpi47QRaqjeiql42SlOHqE1H13HXoDNI4sdIoc5CdEEKBeOk8b6Am6h7RWRxhyA91Hb5P01EdGCc1IMbW0hh4krXWTkD/SjKVc6iejxkdjkH6hJ0m1bxj6L+kxOkbSA6MG71YJTSDjIrRfSM8luVED5tIXAGnzguRno78Jro2nScuqhVyge2k3jb7nknBLApBvBfKygc1LzIoooIcpJLlYQk4yuimy9PnArjVAsx0I+AGfD6i7DGxdFqkIWdAfksqrJ5etJsNjdIO5zJeBC38iLH4/aDYKjfQs3S4ghUa31aRxmW8W0JtnRfelYvjd/Vp2wFl8HI7UORj8gCNkdH9G7DZSBTxAJ7SLI6PmPB44kovAmWPoOroH9VssaPpuMzydNxHwedH0w6ewLZ2EmuVT0bZyJlzvz0MgPaSdShovBUyjTu1idPqcN9WqOXc3X1U993Y7cGPvZ7i+OwvtR/ehPHE2bO+8gNJ3J8NGFQlT0Jg4Hd2r58CbpqbGjczYeClgPZk9XodIz7PeBGovqWHuq7iABusqtBfsV72WIupzUph4kkouiYeTYsriJ6PuvanosMxC39q5+6SAn8ISRZLG3uemAdpcN+/froa9/2p1cAcw2gvy1NDfmXw4fVTK46dclALOhiWKRBbd3k+41bwqmauxFk3f5+DGHit8/X3qWtepgrCEJtqkgKqwRJHICOxM5dh3q2S9ZSVq+BusqRh0dKhrrYdyURplBIbpkwKqwxKZ2fAqcL5QJXNWl+Lazkz02P5W/3e3XENN5uKoUzCMUwo4F5ZkOPUw0cgO4DQEspdi8FyhGnZv7y34B9zot5errViW8CJs8VMMF6GBdingcFhS3UevA5sWAx8vBDa+AWxbgYGtK9Ca9hpqkufAvjmJayAbV3ekoWLlAtSsX4Lr32xEw9bVqMl4C2XLpweLMU4ubFKAHLFCX0DS0+2JQNV5oK0x+Gy324DuLvh6HHA11aP7nyI4Tv+GriI+iIp+Vau/PicZrfm70HJgB58Fe9FzsRj27CSzNZEvBcym/0IKkNW+JwvwetTcRgy/H37PAHzOHri4Fe2bVjD5F3DWXUHAO4i+6stqVNRzITy5hxKlAHk1ng4tIHS/G0V/QyU6Tx5B5x+H0Vn4MxwcBVmMfpcTno4WtOR/pabFZC3Y6SkpQKyjoWmQAr60cFO3AeVnAY9bSzsU0kPpfcDLZ0IgoK75nL2qoOqMRcHE5gvxaxqjFyDHsCu3C9BfNo1VQEUJ0NEMXDkDT2mx2vsytDICrut16l0gbpWc4OJLDe6C6NuwjZ6nkANJEg2oAkRmHB86q4AfNwKfJwPrX4EvIw6OtQtgT5mL8iRKmY+KVXGosMShbNm0kT6AAmSlMRRyKrqfDt4uQI1EcN+rf4ddl3f8v5aZqFnG3nKYS0e253V/0TgKJteDDYvxVKQnisbDQtpZSLUUYpzsTpX0HMWIkGCDumcodFdEIYXc5KGjyrwQSf4ShSfXg43pHqdD5CHDpEbc6+ajNWUGKrkQ9Vcu+ekkTZTEImqwMSFHNfmsstOojuqudfPQnDxDTkGtTJhDY0ecXA82JOTDUj6pNpGNRvKpJjup1p8eu7PdMmti4cIJQ6v9boKN6YU8SovoW5JDTBPJWVK00AXKo+UkX8VjSGslUsTE/A8GZIzu5ZY2iQAAAABJRU5ErkJggg==" InformativeScreenshot="7ff6f502feccd152a5a3cb68f3fcdad8.png" Selector="&lt;wnd app='reta.wpf.taking.exe' cls='HwndWrapper*' title='RETA.Wpf.Taking*' /&gt;" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;los nuevos digitnos obtenidos no son validos&quot;]" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <di:UpdateINFO sap:VirtualizedContainerService.HintSize="1990,132" sap2010:WorkflowViewState.IdRef="UpdateINFO_8" in_clear_form="False" in_error="False" in_mensaje="Fin caso 2" in_warning="False" io_INFO="[INFO]" />
+  </Sequence>
+</Activity>
