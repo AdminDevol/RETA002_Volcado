@@ -121,9 +121,9 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="BusquedaRecaudacionCorrespondiente" sap:VirtualizedContainerService.HintSize="1620,18181" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -2517,19 +2517,19 @@
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:ForEach>
                           </Sequence>
-                          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[in_dtRegistros]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="843,9437" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[in_dtRegistros]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="843,9634" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                             <ui:ForEachRow.Body>
                               <ActivityAction x:TypeArguments="sd:DataRow">
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                                 </ActivityAction.Argument>
-                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="809,9322" sap2010:WorkflowViewState.IdRef="Sequence_128">
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="809,9439" sap2010:WorkflowViewState.IdRef="Sequence_128">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="767,9230" sap2010:WorkflowViewState.IdRef="Sequence_178">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="767,9347" sap2010:WorkflowViewState.IdRef="Sequence_178">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2552,11 +2552,21 @@
                                         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                                       </Assign.Value>
                                     </Assign>
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CambiarCaracteresDesglose workflow" sap:VirtualizedContainerService.HintSize="725,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="RETABET\CambiarCaracteresDesglose.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DesgloseCodigosBarras">
+                                          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_DesgloseCodigosBarras" />
+                                        </InOutArgument>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="in_IndiceCodigo">
+                                          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="IndiceCodigo" />
+                                        </InArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
                                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="725,91" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;CurrentRow: &quot;+CurrentRow.ToString]" />
                                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="725,91" sap2010:WorkflowViewState.IdRef="LogMessage_37" Level="Info" Message="[&quot;Desglose: : &quot;+io_DesgloseCodigosBarras(indiceCodigo).ToString]" />
-                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_BILL5&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(3).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes5).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes5).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(3).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,852" sap2010:WorkflowViewState.IdRef="If_38">
+                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_BILL5&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(3).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes5).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes5).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(3).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,849" sap2010:WorkflowViewState.IdRef="If_38">
                                       <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="526,665" sap2010:WorkflowViewState.IdRef="Sequence_132">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="526,662" sap2010:WorkflowViewState.IdRef="Sequence_132">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2571,15 +2581,15 @@
                                             </Assign.Value>
                                           </Assign>
                                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Ha entrado billetes de 5 , Aciertos: &quot;+Aciertos.ToString]" />
-                                          <If Condition="[Not CurrentRow(in_Config(&quot;COLUMNA_BILL5&quot;).ToString).ToString.Equals(&quot;0&quot;) And Not CurrentRow(in_Config(&quot;COLUMNA_BILL5&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,342" sap2010:WorkflowViewState.IdRef="If_37">
+                                          <If Condition="[Not CurrentRow(in_Config(&quot;COLUMNA_BILL5&quot;).ToString).ToString.Equals(&quot;0&quot;) And Not CurrentRow(in_Config(&quot;COLUMNA_BILL5&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,339" sap2010:WorkflowViewState.IdRef="If_37">
                                             <If.Then>
-                                              <Sequence sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_130">
+                                              <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_130">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_92">
+                                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_92">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:Boolean">[aciertosDiferentesCero]</OutArgument>
                                                   </Assign.To>
@@ -2611,15 +2621,15 @@
                                         </Sequence>
                                       </If.Else>
                                     </If>
-                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_BILL10&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(4).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes10).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes10).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(4).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,857" sap2010:WorkflowViewState.IdRef="If_40">
+                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_BILL10&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(4).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes10).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes10).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(4).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,849" sap2010:WorkflowViewState.IdRef="If_40">
                                       <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="526,669" sap2010:WorkflowViewState.IdRef="Sequence_136">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="526,662" sap2010:WorkflowViewState.IdRef="Sequence_136">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Assign DisplayName="incremento aciertos" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_93">
+                                          <Assign DisplayName="incremento aciertos" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_93">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:Int32">[Aciertos]</OutArgument>
                                             </Assign.To>
@@ -2628,15 +2638,15 @@
                                             </Assign.Value>
                                           </Assign>
                                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Ha entrado billetes de 10 , Aciertos: &quot;+Aciertos.ToString]" />
-                                          <If Condition="[NOT CurrentRow(in_Config(&quot;COLUMNA_BILL10&quot;).ToString).ToString.Equals(&quot;0&quot;) AND NOT CurrentRow(in_Config(&quot;COLUMNA_BILL10&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,343" sap2010:WorkflowViewState.IdRef="If_39">
+                                          <If Condition="[NOT CurrentRow(in_Config(&quot;COLUMNA_BILL10&quot;).ToString).ToString.Equals(&quot;0&quot;) AND NOT CurrentRow(in_Config(&quot;COLUMNA_BILL10&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,339" sap2010:WorkflowViewState.IdRef="If_39">
                                             <If.Then>
-                                              <Sequence sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_134">
+                                              <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_134">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_94">
+                                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_94">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:Boolean">[aciertosDiferentesCero]</OutArgument>
                                                   </Assign.To>
@@ -2668,15 +2678,15 @@
                                         </Sequence>
                                       </If.Else>
                                     </If>
-                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_BILL20&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(5).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes20).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes20).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(5).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,857" sap2010:WorkflowViewState.IdRef="If_42">
+                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_BILL20&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(5).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes20).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes20).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(5).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,849" sap2010:WorkflowViewState.IdRef="If_42">
                                       <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="526,669" sap2010:WorkflowViewState.IdRef="Sequence_140">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="526,662" sap2010:WorkflowViewState.IdRef="Sequence_140">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Assign DisplayName="incremento aciertos" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_95">
+                                          <Assign DisplayName="incremento aciertos" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_95">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:Int32">[Aciertos]</OutArgument>
                                             </Assign.To>
@@ -2685,15 +2695,15 @@
                                             </Assign.Value>
                                           </Assign>
                                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;Ha entrado billetes de 20 , Aciertos: &quot;+Aciertos.ToString]" />
-                                          <If Condition="[NOT CurrentRow(in_Config(&quot;COLUMNA_BILL20&quot;).ToString).ToString.Equals(&quot;0&quot;) AND NOT CurrentRow(in_Config(&quot;COLUMNA_BILL20&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,343" sap2010:WorkflowViewState.IdRef="If_41">
+                                          <If Condition="[NOT CurrentRow(in_Config(&quot;COLUMNA_BILL20&quot;).ToString).ToString.Equals(&quot;0&quot;) AND NOT CurrentRow(in_Config(&quot;COLUMNA_BILL20&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,339" sap2010:WorkflowViewState.IdRef="If_41">
                                             <If.Then>
-                                              <Sequence sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_138">
+                                              <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_138">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_96">
+                                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_96">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:Boolean">[aciertosDiferentesCero]</OutArgument>
                                                   </Assign.To>
@@ -2725,15 +2735,15 @@
                                         </Sequence>
                                       </If.Else>
                                     </If>
-                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_BILL50&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(6).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes50).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes50).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(6).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,857" sap2010:WorkflowViewState.IdRef="If_44">
+                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_BILL50&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(6).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes50).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceBilletes50).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(6).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,849" sap2010:WorkflowViewState.IdRef="If_44">
                                       <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="526,669" sap2010:WorkflowViewState.IdRef="Sequence_144">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="526,662" sap2010:WorkflowViewState.IdRef="Sequence_144">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Assign DisplayName="incremento aciertos" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_97">
+                                          <Assign DisplayName="incremento aciertos" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_97">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:Int32">[Aciertos]</OutArgument>
                                             </Assign.To>
@@ -2742,15 +2752,15 @@
                                             </Assign.Value>
                                           </Assign>
                                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[&quot;Ha entrado billetes de 50 , Aciertos: &quot;+Aciertos.ToString]" />
-                                          <If Condition="[NOT CurrentRow(in_Config(&quot;COLUMNA_BILL50&quot;).ToString).ToString.Equals(&quot;0&quot;) AND NOT CurrentRow(in_Config(&quot;COLUMNA_BILL50&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,343" sap2010:WorkflowViewState.IdRef="If_43">
+                                          <If Condition="[NOT CurrentRow(in_Config(&quot;COLUMNA_BILL50&quot;).ToString).ToString.Equals(&quot;0&quot;) AND NOT CurrentRow(in_Config(&quot;COLUMNA_BILL50&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,339" sap2010:WorkflowViewState.IdRef="If_43">
                                             <If.Then>
-                                              <Sequence sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_142">
+                                              <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_142">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_98">
+                                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_98">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:Boolean">[aciertosDiferentesCero]</OutArgument>
                                                   </Assign.To>
@@ -2782,15 +2792,15 @@
                                         </Sequence>
                                       </If.Else>
                                     </If>
-                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_MON10&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(7).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceMonedas10).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceMonedas10).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(7).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,857" sap2010:WorkflowViewState.IdRef="If_46">
+                                    <If Condition="[Int32.Parse(CurrentRow(in_Config(&quot;COLUMNA_MON10&quot;).ToString).ToString).Equals(Int32.Parse(&quot;-&quot;+If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(7).ToString.trim.Equals(&quot;&quot;),If(io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceMonedas10).ToString.trim.Equals(&quot;&quot;),&quot;0&quot;,io_DesgloseCodigosBarras.Rows(indiceCodigo)(indiceMonedas10).ToString.trim),io_DesgloseCodigosBarras.Rows(indiceCodigo)(7).ToString.trim)))]" DisplayName="Si coninciden incrementamos valor de aciertos" sap:VirtualizedContainerService.HintSize="725,849" sap2010:WorkflowViewState.IdRef="If_46">
                                       <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="526,669" sap2010:WorkflowViewState.IdRef="Sequence_148">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="526,662" sap2010:WorkflowViewState.IdRef="Sequence_148">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Assign DisplayName="incremento aciertos" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_99">
+                                          <Assign DisplayName="incremento aciertos" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_99">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:Int32">[Aciertos]</OutArgument>
                                             </Assign.To>
@@ -2799,15 +2809,15 @@
                                             </Assign.Value>
                                           </Assign>
                                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[&quot;Ha entrado Monedas de 10 , Aciertos: &quot;+Aciertos.ToString]" />
-                                          <If Condition="[NOT CurrentRow(in_Config(&quot;COLUMNA_MON10&quot;).ToString).ToString.Equals(&quot;0&quot;) AND NOT CurrentRow(in_Config(&quot;COLUMNA_MON10&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,343" sap2010:WorkflowViewState.IdRef="If_45">
+                                          <If Condition="[NOT CurrentRow(in_Config(&quot;COLUMNA_MON10&quot;).ToString).ToString.Equals(&quot;0&quot;) AND NOT CurrentRow(in_Config(&quot;COLUMNA_MON10&quot;).ToString).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,339" sap2010:WorkflowViewState.IdRef="If_45">
                                             <If.Then>
-                                              <Sequence sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_146">
+                                              <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_146">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_100">
+                                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_100">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:Boolean">[aciertosDiferentesCero]</OutArgument>
                                                   </Assign.To>
