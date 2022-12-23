@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>3252,12704</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>3252,13170</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Procesamiento_ficheros_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="55">
@@ -121,7 +121,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Procesamiento_ficheros" sap:VirtualizedContainerService.HintSize="3262,12639" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Procesamiento_ficheros" sap:VirtualizedContainerService.HintSize="3262,13105" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="boolRecaudacionIncorrecta" />
       <Variable x:TypeArguments="x:Boolean" Name="boolRecaudacionCorrecta" />
@@ -134,13 +134,13 @@
     </sap:WorkflowViewStateService.ViewState>
     <di:UpdateINFO sap:VirtualizedContainerService.HintSize="3220,132" sap2010:WorkflowViewState.IdRef="UpdateINFO_6" in_clear_form="False" in_error="False" in_mensaje="Procesamos el fichero" in_warning="False" io_INFO="[INFO]" />
     <Delay Duration="00:00:07" sap:VirtualizedContainerService.HintSize="3220,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: RETA.Wpf.Taking   v1.50 " sap:VirtualizedContainerService.HintSize="3220,12313" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="99797a13-d131-4839-8236-bb17d4e0930a" Version="V1">
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: RETA.Wpf.Taking   v1.50 " sap:VirtualizedContainerService.HintSize="3220,12779" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="99797a13-d131-4839-8236-bb17d4e0930a" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="3186,12024" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="3186,12490" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="existeCargando" />
               <Variable x:TypeArguments="ui:UiElement" Name="elemento" />
@@ -169,9 +169,9 @@
                 <uix:TargetAnchorable DesignTimeRectangle="1, 47, 196, 25" ElementType="Button" FriendlyName="'Procesamiento de'" FullSelectorArgument="&lt;ctrl automationid='BarContainerControl' name='None BarContainerControl' role='grouping' /&gt;&lt;ctrl automationid='Bar' /&gt;&lt;ctrl automationid='BarSubItemLinkbsTakingSearch' /&gt;&lt;ctrl automationid='BarButtonItemLink0bItem_ProcessFiles' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='BarContainerControl' name='None BarContainerControl' role='grouping' /&gt;&lt;ctrl automationid='Bar' /&gt;&lt;ctrl automationid='BarSubItemLinkbsTakingSearch' /&gt;&lt;ctrl automationid='BarButtonItemLink0bItem_ProcessFiles' role='push button' check:text='Procesamiento de ficheros' /&gt;" Guid="8062acec-165d-4361-aeeb-704582bf3d14" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAbCAYAAAAnO/CsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKlSURBVHhe7ZXrbQJBDIRTHLXQCYXQB7+vBroh+qRMMhr5Lg9BcijzSSvWu7bXj7N4WZblVkr5gJnoYJQSdDBKGehglDLQwShloINRykAHo5SBDkYpAx2MUgZ2NRjH4/F2OBze1/V6fbt5Pk6n0+18Pr9Jfwc1pK7fRb24XC6f9oI895DrPdndYKgB/NKQ/8q9PrafDAbDwGB/lQ7Gg/HBgJT/Ex2Mv+UpBkONQlaT9Rev5Xbs/U7gQ2dq5Jqun3nTkf1tICb2ig14Cz0hfZZi1QeV9py5vpAea+vDzTw9Lvc9+ci6gn5hqtdaHsLjVk1kw5ni8NhYYq1Hj2S3g0EBVWA1y++mwgnXFfmh6q08n0jf2Ui9hU/5cr9uj67y2rLXhyO4cxn/LgvO5B/Q8/fSx5Q7Z8oRMv+sLT7X8mDv+vIlG5FxYy95Lc5HsrvBoFhaIhtFEbNQKl7qivTNQjebKnSupXv2It/yBmqPnfvRAt5gCZfzzj8awG+eAe96Lq7HXcbhb4jMS/HmuchYXc73WMSUNhk3ELd0Zfdb7PYfw8mGUCh9gIJ7zrLgYs234J7iA/b+nttKBzIuxeB77LCfyFhdzrv0sebXYwXX8/i2yLy8Lh6TyHOXvV5O2vCexw2ZC/Kav3vzlIOB7AXCRrL26Qd79zHBvd5S09Kfv5txyT732Gjv5Mfhct5RG5c9RoezjEmDwZ32W2Ren9UWvx6Lyxm3mGw8NmKYYvW6PpKnHAygkDRJy+3Q9zuB/zzHr2S9oQ+AhY3HJTvIuLxpvnd/LNlMH4dktxGTjwnPE3/IAjv343UTmRd6YqrtVh7g+ooldSBjE36+lfc92dVglLIXOhilDHQwShnoYJQy0MEoZaCDUcpAB6OUgQ5GKQMdjFIGlmW5vQLt50bxO6dqoAAAAABJRU5ErkJggg==" InformativeScreenshot="36650c8eed6c757ea847cc64b1e584e4.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='HwndWrapper*' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Complete" />
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Procesamiento de'" sap:VirtualizedContainerService.HintSize="3144,2586" sap2010:WorkflowViewState.IdRef="NCheckState_1">
+            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Procesamiento de'" sap:VirtualizedContainerService.HintSize="3144,3052" sap2010:WorkflowViewState.IdRef="NCheckState_1">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1278,2370" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1278,2836" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="existecarpeta" />
                     <Variable x:TypeArguments="x:String" Name="entorno" />
@@ -202,9 +202,9 @@
                     </Assign.Value>
                   </Assign>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1236,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Entorno: &quot;+entorno]" />
-                  <If Condition="[entorno.Equals(&quot;Produccion&quot;)]" sap:VirtualizedContainerService.HintSize="1236,1676" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[entorno.Equals(&quot;Produccion&quot;)]" sap:VirtualizedContainerService.HintSize="1236,2142" sap2010:WorkflowViewState.IdRef="If_2">
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="773,1411" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                      <Sequence sap:VirtualizedContainerService.HintSize="773,1983" sap2010:WorkflowViewState.IdRef="Sequence_38">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="rutaEntrada" />
                           <Variable x:TypeArguments="x:Int32" Name="reintentos" />
@@ -231,7 +231,7 @@
                             <InArgument x:TypeArguments="x:String">[rutaEntrada.Replace("@UG",in_TransactionItem.SpecificContent(in_Config("COLUMNA_2").ToString).ToString)]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <Assign sap:VirtualizedContainerService.HintSize="731,61" sap2010:WorkflowViewState.IdRef="Assign_22">
+                        <Assign sap:VirtualizedContainerService.HintSize="731,61" sap2010:WorkflowViewState.IdRef="Assign_26">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Int32">[reintentos]</OutArgument>
                           </Assign.To>
@@ -239,7 +239,7 @@
                             <InArgument x:TypeArguments="x:Int32">0</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <Assign sap:VirtualizedContainerService.HintSize="731,61" sap2010:WorkflowViewState.IdRef="Assign_23">
+                        <Assign sap:VirtualizedContainerService.HintSize="731,61" sap2010:WorkflowViewState.IdRef="Assign_27">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Boolean">[Correcto]</OutArgument>
                           </Assign.To>
@@ -247,9 +247,9 @@
                             <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[reintentos &lt; 3 AND NOT Correcto]" DisplayName="While" sap:VirtualizedContainerService.HintSize="731,914" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="731,1141" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
                           <ui:InterruptibleWhile.Body>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="695,749" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="695,976" sap2010:WorkflowViewState.IdRef="Sequence_47">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="texto" />
                               </Sequence.Variables>
@@ -258,21 +258,72 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke NavegarRutaPorArbolTaking workflow" sap:VirtualizedContainerService.HintSize="653,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="RETABET\NavegarRutaPorArbolTaking.xaml">
-                                <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="a:Attended_Assistant_Form" x:Key="INFO">
-                                    <mva:VisualBasicValue x:TypeArguments="a:Attended_Assistant_Form" ExpressionText="INFO" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_rutaEntrada">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="rutaEntrada" />
-                                  </InArgument>
-                                </ui:InvokeWorkflowFile.Arguments>
-                              </ui:InvokeWorkflowFile>
+                              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="653,339" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                                <TryCatch.Try>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke NavegarRutaPorArbolTaking workflow" sap:VirtualizedContainerService.HintSize="337,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="RETABET\NavegarRutaPorArbolTaking.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="a:Attended_Assistant_Form" x:Key="INFO">[INFO]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_rutaEntrada">[rutaEntrada]</InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                </TryCatch.Try>
+                                <TryCatch.Catches>
+                                  <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                                      </ActivityAction.Argument>
+                                      <Sequence sap:VirtualizedContainerService.HintSize="526,492" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[reintentos]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[reintentos + 1]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <If Condition="[reintentos = 3]" sap:VirtualizedContainerService.HintSize="484,300" sap2010:WorkflowViewState.IdRef="If_4">
+                                          <If.Then>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Throw Exception="[new BusinessRuleException(&quot;Ruta de arbol no encontrada: &quot;+rutaEntrada)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_54">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </Catch>
+                                </TryCatch.Catches>
+                              </TryCatch>
                               <uix:NGetText DisplayName="Get Text 'Seleccione un directorio'" sap:VirtualizedContainerService.HintSize="653,156" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="99797a13-d131-4839-8236-bb17d4e0930a" Version="V1">
                                 <uix:NGetText.Target>
-                                  <uix:TargetAnchorable DesignTimeRectangle="161, 209, 500, 22" ElementType="Text" FriendlyName="'E:\EKASA\Recaudaciones\…'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl name='E:\EKASA\Recaudaciones\Taking' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl role='text' automationid='' /&gt;" Guid="b405f020-a1c5-4851-8d14-ca680c2bc0d9" InformativeScreenshot="2d5682844bdb6585bd779b71680acc6a.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='HwndWrapper*' title='RETA.Wpf.Taking   v1.62 ' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                                  <uix:TargetAnchorable DesignTimeRectangle="161, 209, 500, 22" ElementType="Text" FriendlyName="'E:\EKASA\Recaudaciones\…'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl name='E:\EKASA\Recaudaciones\Taking' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl role='text' automationid='' /&gt;" Guid="b405f020-a1c5-4851-8d14-ca680c2bc0d9" ImageBase64="" InformativeScreenshot="2d5682844bdb6585bd779b71680acc6a.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='HwndWrapper*' title='RETA.Wpf.Taking   v1.62 ' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
-                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                         <uix:Target DesignTimeRectangle="39, 213, 117, 14" ElementType="Text" FriendlyName="'Seleccione un directorio'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl name='Seleccione un directorio' role='text' /&gt;&lt;ctrl name='Seleccione un directorio:' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl name='Seleccione un directorio' role='text' /&gt;&lt;ctrl name='Seleccione un directorio:' role='text' automationid='' check:text='Seleccione un directorio:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHkAAAASCAYAAAB/yXHQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUXSURBVGhD7VdBayJZEN4fJ/ShLw1LQIKeROhDCHGXHREJrIwgQsBB2EACguTgggEHIRkPsjK4IpvswHgQPMyGICNm0IOy4KEv79uq1932a9MmmeywZBM/EPT166r66nuvqvwOGzx7bER+AdiI/ALwZEReTG8wt4Tz62nDmt9guvjvYxXCwvxmioX4Ot9LkdnAVf01InoIoZCOWL6BqzuSLppZhLJN59e/gxCfcGKG8cufT1dklW8rpyP59ov8/lgIMUA5Hkd58HDOQrSQ05N4++WxIo+qSGgpnA4XENYY5xkDu5Vr5+ltfEuR/w/41nwfI/Jj4YncKcCIldB3SoH4eIr86Uf5fdIuIsY3XAsjWe3Doj0qaTFpoxjTqQJoCCer6DsVwHvPwN6J857VRzUZhhYKQY/k0ZzQmkLYV1H0CNKuv0EZ8e0Uft5hPzp2XHtignYxBp3saeEkqn1L+nYhRBPZUBZNuVfxs8aeCqtfRTKsSd657Ksl32Y2hGzTtbcNc4f40LN1saj5MfZOKD/8HldM/tjxWFd1vI7YsUTSXg7ZV3xnB3q8jIGPywQXR3swNPJlmCi2J3K/sOa4uZn7uHgiz6gUbG3hp3IXY6VMC6uNAyOOEgVsjc+RMRKojsiJIzKL0j4wEC9RkpwKkKiO6D0KSIvjuEeVYdHFm22bzKAch5E5Jx8WxqevZHIsNfnXFexSRamNXX9RHPUcUTQTZY7jwyGiRgEdImK1D2DE6XCyvfMMjEQVI4XgnSIH2HMhxAxn+zoSlb8ovgkaxCtYZA2p06Hsk8GxWLRfQ/y4R3sW6L7ZRrw88McirlHZJTu18TKH0aPe0le02JXzispF+ooWcUGzwaJ3TFz2cTajPX8UsaXn8V7h4hu8rKsG8qYBjU5u0hFbJkOeInYyQz2lIdei70uRvWAZs3oKWq4F0S8h5rzHGF6+w+XQomTZCWKIWR/v3/cxUwmz3UxjeRJbOc0+NL44PLJ8aDhpDDGrI6Xl0HLeZdwpcoA9F0J8wOG2iZNP9hr7CRbZ4x4cSx+lmLdHDC/x7nLoj0X6z6DhXC7RykFzDqvrS66v8I7RxbLXeaYxUOjY+1bhE9nFYvg7Dk06fXziOOmyrHgfSXApMjv2P5fr/FwRmWET84J2oRJWk8lwE7dOFE6Cz/ctsby9Xyeyf+0hIgfHwna8PS5uxaL4UmNbJzKvuweKoe5bxVLk0W/Hyx7MsBoZhPbP8PfKjXThiew/qS5Wb/Ji+pn+dqzc5GX/8AhLv8pN7hSc8r9GlH4p5iO7iseLzDfZ4/UQkYNiWc2PWEzxeUotTI3FaiCj3mSej+65yezLu8kjVBMPuMmid4ToVhbnznTdyG7BKHSo7JxhXzdR4t5KonRrdTkUeCLbvcsscc+h/3HdGurU5/w9+QLFqE2Ik7XsybUUdLKxvic3kN1SenKAKLOzfehmCT3qTda8i1rdP0AJ0UHBnSmufsUPFJP0c6/ISk92+uR9IgfH4u/JF8WoXZnkuzGKi+34ezLnXu3JQSL7e3IJpu705DsHL55qG3mYBk2TNOF9/+MRLmjyZfCU7K5H0hVJwhWZIadH7uVUovRIGhUSlhE4lavTdayIdsB03a+mg6frAFHsidaUU6bcX+FkqmKRvROaTmVsezCd23mfyIyHTdeeyOtiCfr3wXF1ipwHe5BlX+k103WQyKov33R93+C1wfPERuQXgI3ILwAbkV8ANiI/ewD/AGsJKAQYxpmvAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
                                       </scg:List>
                                     </uix:TargetAnchorable.Anchors>
@@ -282,7 +333,7 @@
                                   <OutArgument x:TypeArguments="x:String">[texto]</OutArgument>
                                 </uix:NGetText.Text>
                               </uix:NGetText>
-                              <If Condition="[texto.Equals(rutaEntrada)]" sap:VirtualizedContainerService.HintSize="653,309" sap2010:WorkflowViewState.IdRef="If_3">
+                              <If Condition="[texto.Contains(rutaEntrada.Replace(&quot;RETAND&quot;,&quot;RETAN&quot;).Substring(32,rutaEntrada.Length-32))]" sap:VirtualizedContainerService.HintSize="653,309" sap2010:WorkflowViewState.IdRef="If_3">
                                 <If.Then>
                                   <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_48">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -320,7 +371,31 @@
                               </If>
                             </Sequence>
                           </ui:InterruptibleWhile.Body>
+                          <ui:InterruptibleWhile.Condition>
+                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="reintentos &lt; 3 AND NOT Correcto" />
+                          </ui:InterruptibleWhile.Condition>
                         </ui:InterruptibleWhile>
+                        <If Condition="[reintentos = 3 OR NOT Correcto]" sap:VirtualizedContainerService.HintSize="731,304" sap2010:WorkflowViewState.IdRef="If_5">
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="242,116" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw Exception="[new BusinessRuleException(&quot;Ruta de arbol no encontrada: &quot;+rutaEntrada)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_57">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
                       </Sequence>
                     </If.Then>
                     <If.Else>

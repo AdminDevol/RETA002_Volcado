@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="_TEstDANI" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1071,3979" sap2010:WorkflowViewState.IdRef="_TEstDANI_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="_TEstDANI" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1164,5439" sap2010:WorkflowViewState.IdRef="_TEstDANI_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="44">
+    <scg:List x:TypeArguments="x:String" Capacity="46">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -45,10 +45,12 @@
       <x:String>UiPath.CV.Activities.Interfaces</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -89,15 +91,19 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_TEstDANI" sap:VirtualizedContainerService.HintSize="1081,3914" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_TEstDANI" sap:VirtualizedContainerService.HintSize="1081,5374" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="in_Config" />
       <Variable x:TypeArguments="x:String" Name="apikey" />
       <Variable x:TypeArguments="sd:DataTable" Name="io_DesgloseCodigosBarras" />
       <Variable x:TypeArguments="x:Int32" Name="stepNoClick" />
       <Variable x:TypeArguments="x:Int32" Name="NoOfRepetitionsClick" />
+      <Variable x:TypeArguments="x:String" Name="texto" />
+      <Variable x:TypeArguments="x:String" Name="rutaEntrada" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -106,7 +112,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1039,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,158" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="690,158" sap2010:WorkflowViewState.IdRef="Sequence_13">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1882,22 +1888,109 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: RETA.Wpf.Taking   v1.62 " sap:VirtualizedContainerService.HintSize="1039,539" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="c2103b06-c727-4ef8-9193-9c2fbb8154c5" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_29">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NGetText DisplayName="Get Text 'Seleccione un directorio'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="c2103b06-c727-4ef8-9193-9c2fbb8154c5" Version="V1">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="161, 209, 500, 22" ElementType="Text" FriendlyName="'E:\EKASA\Recaudaciones\…'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl name='E:\EKASA\Recaudaciones\Taking' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl role='text' automationid='' /&gt;" Guid="b405f020-a1c5-4851-8d14-ca680c2bc0d9" ImageBase64="" InformativeScreenshot="2d5682844bdb6585bd779b71680acc6a.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='HwndWrapper*' title='RETA.Wpf.Taking   v1.62 ' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="39, 213, 117, 14" ElementType="Text" FriendlyName="'Seleccione un directorio'" FullSelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl name='Seleccione un directorio' role='text' /&gt;&lt;ctrl name='Seleccione un directorio:' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='DockLayoutManager' /&gt;&lt;ctrl automationid='LayoutRoot' /&gt;&lt;ctrl automationid='documentContainer' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl automationid='Procesamiento de ficheros' /&gt;&lt;ctrl name='Seleccione un directorio' role='text' /&gt;&lt;ctrl name='Seleccione un directorio:' role='text' automationid='' check:text='Seleccione un directorio:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHkAAAASCAYAAAB/yXHQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUXSURBVGhD7VdBayJZEN4fJ/ShLw1LQIKeROhDCHGXHREJrIwgQsBB2EACguTgggEHIRkPsjK4IpvswHgQPMyGICNm0IOy4KEv79uq1932a9MmmeywZBM/EPT166r66nuvqvwOGzx7bER+AdiI/ALwZEReTG8wt4Tz62nDmt9guvjvYxXCwvxmioX4Ot9LkdnAVf01InoIoZCOWL6BqzuSLppZhLJN59e/gxCfcGKG8cufT1dklW8rpyP59ov8/lgIMUA5Hkd58HDOQrSQ05N4++WxIo+qSGgpnA4XENYY5xkDu5Vr5+ltfEuR/w/41nwfI/Jj4YncKcCIldB3SoH4eIr86Uf5fdIuIsY3XAsjWe3Doj0qaTFpoxjTqQJoCCer6DsVwHvPwN6J857VRzUZhhYKQY/k0ZzQmkLYV1H0CNKuv0EZ8e0Uft5hPzp2XHtignYxBp3saeEkqn1L+nYhRBPZUBZNuVfxs8aeCqtfRTKsSd657Ksl32Y2hGzTtbcNc4f40LN1saj5MfZOKD/8HldM/tjxWFd1vI7YsUTSXg7ZV3xnB3q8jIGPywQXR3swNPJlmCi2J3K/sOa4uZn7uHgiz6gUbG3hp3IXY6VMC6uNAyOOEgVsjc+RMRKojsiJIzKL0j4wEC9RkpwKkKiO6D0KSIvjuEeVYdHFm22bzKAch5E5Jx8WxqevZHIsNfnXFexSRamNXX9RHPUcUTQTZY7jwyGiRgEdImK1D2DE6XCyvfMMjEQVI4XgnSIH2HMhxAxn+zoSlb8ovgkaxCtYZA2p06Hsk8GxWLRfQ/y4R3sW6L7ZRrw88McirlHZJTu18TKH0aPe0le02JXzispF+ooWcUGzwaJ3TFz2cTajPX8UsaXn8V7h4hu8rKsG8qYBjU5u0hFbJkOeInYyQz2lIdei70uRvWAZs3oKWq4F0S8h5rzHGF6+w+XQomTZCWKIWR/v3/cxUwmz3UxjeRJbOc0+NL44PLJ8aDhpDDGrI6Xl0HLeZdwpcoA9F0J8wOG2iZNP9hr7CRbZ4x4cSx+lmLdHDC/x7nLoj0X6z6DhXC7RykFzDqvrS66v8I7RxbLXeaYxUOjY+1bhE9nFYvg7Dk06fXziOOmyrHgfSXApMjv2P5fr/FwRmWET84J2oRJWk8lwE7dOFE6Cz/ctsby9Xyeyf+0hIgfHwna8PS5uxaL4UmNbJzKvuweKoe5bxVLk0W/Hyx7MsBoZhPbP8PfKjXThiew/qS5Wb/Ji+pn+dqzc5GX/8AhLv8pN7hSc8r9GlH4p5iO7iseLzDfZ4/UQkYNiWc2PWEzxeUotTI3FaiCj3mSej+65yezLu8kjVBMPuMmid4ToVhbnznTdyG7BKHSo7JxhXzdR4t5KonRrdTkUeCLbvcsscc+h/3HdGurU5/w9+QLFqE2Ik7XsybUUdLKxvic3kN1SenKAKLOzfehmCT3qTda8i1rdP0AJ0UHBnSmufsUPFJP0c6/ISk92+uR9IgfH4u/JF8WoXZnkuzGKi+34ezLnXu3JQSL7e3IJpu705DsHL55qG3mYBk2TNOF9/+MRLmjyZfCU7K5H0hVJwhWZIadH7uVUovRIGhUSlhE4lavTdayIdsB03a+mg6frAFHsidaUU6bcX+FkqmKRvROaTmVsezCd23mfyIyHTdeeyOtiCfr3wXF1ipwHe5BlX+k103WQyKov33R93+C1wfPERuQXgI3ILwAbkV8ANiI/ewD/AGsJKAQYxpmvAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+              <uix:NGetText.Text>
+                <OutArgument x:TypeArguments="x:String">[texto]</OutArgument>
+              </uix:NGetText.Text>
+            </uix:NGetText>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" FilePath="C:\Users\des_RPA2\AppData\Local\Apps\2.0\GBQOK0R3.A0Y\P22O1ROA.Z5C\reta..tion_460f06de07ae0cc9_0001.003e_56f8c2c2e99fcaa3\reta.wpf.taking.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVaSURBVFhHnddpbBRlGAfwyhdNjBo/SIgfRBM1MTGBGBEE5IZWo2IMgmgLhh4sBcQeiFIDrSyCKKI0XhyFNJGIgRQxsQrS0IAFObqld7eFUnrQ2q702O52u8ff//PuDO2ys7MtT/ILZdp5n+e9Zt6JiRbIiNU9RDMpi47QRaqjeiql42SlOHqE1H13HXoDNI4sdIoc5CdEEKBeOk8b6Am6h7RWRxhyA91Hb5P01EdGCc1IMbW0hh4krXWTkD/SjKVc6iejxkdjkH6hJ0m1bxj6L+kxOkbSA6MG71YJTSDjIrRfSM8luVED5tIXAGnzguRno78Jro2nScuqhVyge2k3jb7nknBLApBvBfKygc1LzIoooIcpJLlYQk4yuimy9PnArjVAsx0I+AGfD6i7DGxdFqkIWdAfksqrJ5etJsNjdIO5zJeBC38iLH4/aDYKjfQs3S4ghUa31aRxmW8W0JtnRfelYvjd/Vp2wFl8HI7UORj8gCNkdH9G7DZSBTxAJ7SLI6PmPB44kovAmWPoOroH9VssaPpuMzydNxHwedH0w6ewLZ2EmuVT0bZyJlzvz0MgPaSdShovBUyjTu1idPqcN9WqOXc3X1U993Y7cGPvZ7i+OwvtR/ehPHE2bO+8gNJ3J8NGFQlT0Jg4Hd2r58CbpqbGjczYeClgPZk9XodIz7PeBGovqWHuq7iABusqtBfsV72WIupzUph4kkouiYeTYsriJ6PuvanosMxC39q5+6SAn8ISRZLG3uemAdpcN+/froa9/2p1cAcw2gvy1NDfmXw4fVTK46dclALOhiWKRBbd3k+41bwqmauxFk3f5+DGHit8/X3qWtepgrCEJtqkgKqwRJHICOxM5dh3q2S9ZSVq+BusqRh0dKhrrYdyURplBIbpkwKqwxKZ2fAqcL5QJXNWl+Lazkz02P5W/3e3XENN5uKoUzCMUwo4F5ZkOPUw0cgO4DQEspdi8FyhGnZv7y34B9zot5errViW8CJs8VMMF6GBdingcFhS3UevA5sWAx8vBDa+AWxbgYGtK9Ca9hpqkufAvjmJayAbV3ekoWLlAtSsX4Lr32xEw9bVqMl4C2XLpweLMU4ubFKAHLFCX0DS0+2JQNV5oK0x+Gy324DuLvh6HHA11aP7nyI4Tv+GriI+iIp+Vau/PicZrfm70HJgB58Fe9FzsRj27CSzNZEvBcym/0IKkNW+JwvwetTcRgy/H37PAHzOHri4Fe2bVjD5F3DWXUHAO4i+6stqVNRzITy5hxKlAHk1ng4tIHS/G0V/QyU6Tx5B5x+H0Vn4MxwcBVmMfpcTno4WtOR/pabFZC3Y6SkpQKyjoWmQAr60cFO3AeVnAY9bSzsU0kPpfcDLZ0IgoK75nL2qoOqMRcHE5gvxaxqjFyDHsCu3C9BfNo1VQEUJ0NEMXDkDT2mx2vsytDICrut16l0gbpWc4OJLDe6C6NuwjZ6nkANJEg2oAkRmHB86q4AfNwKfJwPrX4EvIw6OtQtgT5mL8iRKmY+KVXGosMShbNm0kT6AAmSlMRRyKrqfDt4uQI1EcN+rf4ddl3f8v5aZqFnG3nKYS0e253V/0TgKJteDDYvxVKQnisbDQtpZSLUUYpzsTpX0HMWIkGCDumcodFdEIYXc5KGjyrwQSf4ShSfXg43pHqdD5CHDpEbc6+ajNWUGKrkQ9Vcu+ekkTZTEImqwMSFHNfmsstOojuqudfPQnDxDTkGtTJhDY0ecXA82JOTDUj6pNpGNRvKpJjup1p8eu7PdMmti4cIJQ6v9boKN6YU8SovoW5JDTBPJWVK00AXKo+UkX8VjSGslUsTE/A8GZIzu5ZY2iQAAAABJRU5ErkJggg==" InformativeScreenshot="0b320a0b83ff757b9e82469c8cb3dfb4.png" Selector="&lt;wnd app='reta.wpf.taking.exe' cls='HwndWrapper*' title='RETA.Wpf.Taking   v1.62 ' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <Assign sap:VirtualizedContainerService.HintSize="1039,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[rutaEntrada]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Este equipo\Prosegur-Devol (E:)\AMON\Recaudaciones\Taking"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="1039,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[rutaEntrada]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[rutaEntrada.Substring(32,rutaEntrada.Length-32)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[texto.Contains(rutaEntrada)]" sap:VirtualizedContainerService.HintSize="1039,341" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_31">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;ES true&quot;]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_32">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;NO ES true&quot;]" />
+        </Sequence>
+      </If.Else>
+    </If>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="1039,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\InitAllSettings.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">
-          <Literal x:TypeArguments="x:String">Data\Config.xls</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">
-          <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;Settings&quot;,&quot;Constants&quot;}" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:Boolean" x:Key="in_EntornoProduccion">
-          <Literal x:TypeArguments="x:Boolean" />
-        </InArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xls</InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="in_EntornoProduccion">False</InArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[in_Config]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <Assign sap:VirtualizedContainerService.HintSize="1039,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[rutaEntrada]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Este equipo\"+in_Config("NOMBRE_UNIDAD_PROSEGUR").Tostring+in_Config("CARPETA_PROCESAR").ToString.Substring(2,in_Config("CARPETA_PROCESAR").ToString.Length-2)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="1039,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[rutaEntrada]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Este equipo\Prosegur-Devol (E:)\AMON\Recaudaciones\Taking"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="1039,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[rutaEntrada]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[rutaEntrada.Substring(32,rutaEntrada.Length-32)]</InArgument>
+      </Assign.Value>
+    </Assign>
     <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;APIKEY&quot;).tostring]" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="1039,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[apikey]</OutArgument>

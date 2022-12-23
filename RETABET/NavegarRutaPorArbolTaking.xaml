@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1164,4397</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1164,4593</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>NavegarRutaPorArbolTaking_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">
@@ -94,7 +94,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="NavegarRutaPorArbolTaking" sap:VirtualizedContainerService.HintSize="1122,4332" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="NavegarRutaPorArbolTaking" sap:VirtualizedContainerService.HintSize="1122,4528" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="intentos" />
     </Sequence.Variables>
@@ -110,13 +110,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </di:UpdateINFO>
-    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Application: Buscar carpeta" sap:VirtualizedContainerService.HintSize="1080,3896" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="e7599178-d1ac-42e7-90da-e51683cc58a7" Version="V1">
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Application: Buscar carpeta" sap:VirtualizedContainerService.HintSize="1080,4092" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="e7599178-d1ac-42e7-90da-e51683cc58a7" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1046,3607" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1046,3803" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="UG" />
               <Variable x:TypeArguments="x:String" Name="texto" />
@@ -156,13 +156,13 @@
                 <InArgument x:TypeArguments="s:String[]">[in_rutaEntrada.Replace("RETAND","RETAN").Split("\"c)]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1004,2994" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrayRuta]">
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1004,3190" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrayRuta]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="itemRuta" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="968,2869" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="968,3065" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -178,7 +178,7 @@
                           </sap:WorkflowViewStateService.ViewState>
                           <uix:NClick ClickType="Single" DisplayName="Click 'itemRuta'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e7599178-d1ac-42e7-90da-e51683cc58a7" Version="V1">
                             <uix:NClick.Target>
-                              <uix:TargetAnchorable DesignTimeRectangle="62, 129, 65, 20" FriendlyName="'Este equipo'" FullSelectorArgument="[String.Format(&quot;&lt;wnd ctrlid='100' title='Vista en árbol' /&gt;&lt;ctrl name='{0}' role='outline item' /&gt;&quot;, itemRuta)]" FuzzySelectorArgument="&lt;wnd ctrlid='100' title='Vista en árbol' /&gt;&lt;ctrl name='Este equipo' role='outline item' automationid='' check:text='Este equipo' /&gt;" Guid="152a9652-f863-415d-b240-3907aa6a8553" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEUAAAAYCAYAAACsnTAAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFYSURBVFhH7ZSJbcYgDIWZi4E8D9NkmQxDMUewnUdFqv5qKvmTkIJxfDyOkJ0bLgrARQG4KAAXBeCiAFwUABDlyBRCDmLQ0ZfeyJlyDDGns89/gYUou0me+P4fXBTAA1HOnKK8Uuwnrtm4Y/U4DzuVaICVj7DHlEQdtiY5B9+HjCMaUXnXz8LGm9KLPmg2fvFdsTwlXVRl5dPyTm1jyW2avULJuf0uNcdUtrCg3hsdX69p9k9KV1k3aXzNTtRhhVz5sH00U7HNyppWa9avWKgLUfPqk3utGR6/KW0HRzDjCxLfWPl8RJR25T8uCsPCzCNvi7WnybLyafZRpL4+ojmGrzIUwsRWQuj4SKTBxpvSk9RChm0GY7WrbXZTkg0/YZesfEQO/dDqtUBkhNDfRO0081DpVV4R2wBEeQuy2V1+8s8dFwXgogBeLMrf4aIAXBSAiwJwUW7k/AURifyFb55plwAAAABJRU5ErkJggg==" InformativeScreenshot="7b1c82c3734cb084f3bbd48a16748aec.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='#32770' title='Buscar carpeta' /&gt;" SearchSteps="Selector" WaitForReadyArgument="Complete" />
+                              <uix:TargetAnchorable DesignTimeRectangle="62, 129, 65, 20" FriendlyName="'Este equipo'" FullSelectorArgument="[String.Format(&quot;&lt;wnd ctrlid='100' title='Vista en árbol' /&gt;&lt;ctrl name='{0}' role='outline item' /&gt;&quot;, itemRuta)]" FuzzySelectorArgument="&lt;wnd ctrlid='100' title='Vista en árbol' /&gt;&lt;ctrl name='Este equipo' role='outline item' automationid='' check:text='Este equipo' /&gt;" Guid="152a9652-f863-415d-b240-3907aa6a8553" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEUAAAAYCAYAAACsnTAAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFYSURBVFhH7ZSJbcYgDIWZi4E8D9NkmQxDMUewnUdFqv5qKvmTkIJxfDyOkJ0bLgrARQG4KAAXBeCiAFwUABDlyBRCDmLQ0ZfeyJlyDDGns89/gYUou0me+P4fXBTAA1HOnKK8Uuwnrtm4Y/U4DzuVaICVj7DHlEQdtiY5B9+HjCMaUXnXz8LGm9KLPmg2fvFdsTwlXVRl5dPyTm1jyW2avULJuf0uNcdUtrCg3hsdX69p9k9KV1k3aXzNTtRhhVz5sH00U7HNyppWa9avWKgLUfPqk3utGR6/KW0HRzDjCxLfWPl8RJR25T8uCsPCzCNvi7WnybLyafZRpL4+ojmGrzIUwsRWQuj4SKTBxpvSk9RChm0GY7WrbXZTkg0/YZesfEQO/dDqtUBkhNDfRO0081DpVV4R2wBEeQuy2V1+8s8dFwXgogBeLMrf4aIAXBSAiwJwUW7k/AURifyFb55plwAAAABJRU5ErkJggg==" InformativeScreenshot="7b1c82c3734cb084f3bbd48a16748aec.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='#32770' title='Buscar carpeta' /&gt;" SearchSteps="Selector" Visibility="Visible" WaitForReadyArgument="Complete" />
                             </uix:NClick.Target>
                           </uix:NClick>
                           <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_2">
@@ -211,7 +211,7 @@
                         </Sequence>
                       </uix:NCheckState.IfNotExists>
                       <uix:NCheckState.Target>
-                        <uix:TargetAnchorable DesignTimeRectangle="81, 269, 107, 20" FriendlyName="'Prosegur-Devol (K:)'" FullSelectorArgument="[String.Format(&quot;&lt;wnd ctrlid='100' title='Vista en árbol' /&gt;&lt;ctrl name='{0}' role='outline item' /&gt;&quot;, itemRuta)]" FuzzySelectorArgument="&lt;wnd ctrlid='100' title='Vista en árbol' /&gt;&lt;ctrl name='Prosegur-Devol (*:)' role='outline item' automationid='' check:text='Prosegur-Devol (*:)' /&gt;" Guid="84bb3038-8ea2-4682-bd0f-6efea23acf2e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAAYCAYAAAD04qMZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJbSURBVGhD7ZYBjsQgCEU9Vw/keTxNL9PDuIJYgYrTycwmZeJLmp0qIvDFbsgLtyzxHLPEc8wSzzFLPMcs8RyzxHPMQLw9xxByOJ8tp4OmXKLzCXn7t4RgL7teR9pyiHv5pe2OnLYSG8519jiP1RCvO8YNt1Tce0UXisRUhfoOE/GOlLezjtLOFglENfwVXoo3DcgFg/ihkCGWmW9j1wqaoAvU7Xo3GuzRnH9TvPo7xrJhSx4L0a+kvg9dBXpc2LMCsvEtpcuet+O5oNcDNTY7JjUPQBFb55g5j/YCdAeRXWI+G3wfAPYybr43r02Y4y1e32URaO3wxKjkik31Jf3gnqedWiPe67rZd+G6HuDiqPkWk4ofrrZub+Q83AuAcX64qg8pPKHFu6zt3PiHRW/KgsPApeMzSTqdorA01n2XB4xh/BKwVZDJnPDf4tLrAdYJVky4jvlo8aG9kfNwL4D7AshuB18je47u2s6Na5Oj5qaJVGoXcUGlPQLj3xBvyMCGx2HFVGjfqfaXBic5W/HAOF/D7KDTjP0rem3nM/HwnYllFKInX+1FNyLSj7w21fcHk21zs1gbL2I2YyrgoYql63ThrZyteIxvHr1jvu3w6msTY+AHu/OheAUMvl05bA6L3MZZ8sK+PK0KzF7+wyLnQizFPOdmsTbAhtbiM7C3YqKDw799iJXzJB7RvQM76F4UTYsH73p/YiDeA8DijK8Kt0BORgfZ2N874JHinaeQ3n8FvB6NLhqBdZjYP0Q8up7Oq+jHuu6feOa1ubjFEs8xSzzHLPEcs8RzS85/F8Wj2YH7md0AAAAASUVORK5CYII=" InformativeScreenshot="8c826d941f0f65a662c4d57269fac2ba.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='#32770' title='Buscar carpeta' /&gt;" SearchSteps="Selector" WaitForReadyArgument="Complete" />
+                        <uix:TargetAnchorable DesignTimeRectangle="81, 269, 107, 20" FriendlyName="'Prosegur-Devol (K:)'" FullSelectorArgument="[String.Format(&quot;&lt;wnd ctrlid='100' title='Vista en árbol' /&gt;&lt;ctrl name='{0}' role='outline item' /&gt;&quot;, itemRuta)]" FuzzySelectorArgument="&lt;wnd ctrlid='100' title='Vista en árbol' /&gt;&lt;ctrl name='Prosegur-Devol (*:)' role='outline item' automationid='' check:text='Prosegur-Devol (*:)' /&gt;" Guid="84bb3038-8ea2-4682-bd0f-6efea23acf2e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAAYCAYAAAD04qMZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJbSURBVGhD7ZYBjsQgCEU9Vw/keTxNL9PDuIJYgYrTycwmZeJLmp0qIvDFbsgLtyzxHLPEc8wSzzFLPMcs8RyzxHPMQLw9xxByOJ8tp4OmXKLzCXn7t4RgL7teR9pyiHv5pe2OnLYSG8519jiP1RCvO8YNt1Tce0UXisRUhfoOE/GOlLezjtLOFglENfwVXoo3DcgFg/ihkCGWmW9j1wqaoAvU7Xo3GuzRnH9TvPo7xrJhSx4L0a+kvg9dBXpc2LMCsvEtpcuet+O5oNcDNTY7JjUPQBFb55g5j/YCdAeRXWI+G3wfAPYybr43r02Y4y1e32URaO3wxKjkik31Jf3gnqedWiPe67rZd+G6HuDiqPkWk4ofrrZub+Q83AuAcX64qg8pPKHFu6zt3PiHRW/KgsPApeMzSTqdorA01n2XB4xh/BKwVZDJnPDf4tLrAdYJVky4jvlo8aG9kfNwL4D7AshuB18je47u2s6Na5Oj5qaJVGoXcUGlPQLj3xBvyMCGx2HFVGjfqfaXBic5W/HAOF/D7KDTjP0rem3nM/HwnYllFKInX+1FNyLSj7w21fcHk21zs1gbL2I2YyrgoYql63ThrZyteIxvHr1jvu3w6msTY+AHu/OheAUMvl05bA6L3MZZ8sK+PK0KzF7+wyLnQizFPOdmsTbAhtbiM7C3YqKDw799iJXzJB7RvQM76F4UTYsH73p/YiDeA8DijK8Kt0BORgfZ2N874JHinaeQ3n8FvB6NLhqBdZjYP0Q8up7Oq+jHuu6feOa1ubjFEs8xSzzHLPEcs8RzS85/F8Wj2YH7md0AAAAASUVORK5CYII=" InformativeScreenshot="8c826d941f0f65a662c4d57269fac2ba.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='#32770' title='Buscar carpeta' /&gt;" SearchSteps="Selector" Visibility="Visible" WaitForReadyArgument="Complete" />
                       </uix:NCheckState.Target>
                     </uix:NCheckState>
                     <Assign DisplayName="intentos a 0" sap:VirtualizedContainerService.HintSize="926,61" sap2010:WorkflowViewState.IdRef="Assign_6">
@@ -301,15 +301,26 @@
                         </Sequence>
                       </ui:InterruptibleWhile.Body>
                     </ui:InterruptibleWhile>
-                    <If Condition="[intentos &gt;= 50]" sap:VirtualizedContainerService.HintSize="926,304" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[intentos &gt;= 50]" sap:VirtualizedContainerService.HintSize="926,500" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="242,116" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,312" sap2010:WorkflowViewState.IdRef="Sequence_11">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Throw Exception="[new BusinessRuleException(&quot;Ruta de arbol no encontrada: &quot;+in_rutaEntrada)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                          <uix:NClick ClickType="Single" DisplayName="Click 'Cancelar'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e7599178-d1ac-42e7-90da-e51683cc58a7" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable DesignTimeRectangle="290, 355, 75, 23" ElementType="Button" FriendlyName="'Cancelar'" FullSelectorArgument="&lt;wnd ctrlid='2' title='Cancelar' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='2' title='Cancelar' check:text='Cancelar' /&gt;" Guid="6d4ad434-f974-4b4d-8605-5b3c1debad48" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAbCAYAAAA9K9JnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVGhD7ZbREYMgDEDdiW1YhlVYwCEYxQ3cICUcYKBBrSk/Xj7etYQIzZNol33fQXmGyhOg8gQ08tZ1VS6gvr7kbdumDFB5AlSeAJUnQOUJeJe84MAYB4Gbm8Bced7CsiwH1vN5/+It8oIzUZgFT2LetuO/8w55AZwx4AI3V8SWE5nzcuHOHifV+nKNB1vzcxzza6xdA+Vd7yG/kXPkpcJu/jhsbWznLKMKw3gSgTeCikRQJlm/SCPyjtzIaA8h8+RxRRRyEfVkcIWXMbdWf30iyqS5fc5oLQFz5KWTMWjbVBSZKwX1hY3idI7GaBw/7+whZJK8kxdGV0DK4wqr41HbMu03kDTcQ8g0eUj70I7kvyqevBRMFMoV3Jwu/E7WSdK6WC/n1h5Cpsp7OypPgMoToPIEqDwBl/KUc6ivRp7yGypPgMp7zA4f4c0qP3hk8TcAAAAASUVORK5CYII=" InformativeScreenshot="8479663f41eead70230ec8d65057e8a8.png" ScopeSelectorArgument="&lt;wnd app='reta.wpf.taking.exe' cls='#32770' title='Buscar carpeta' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                    <uix:Target DesignTimeRectangle="209, 355, 75, 23" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='Aceptar' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='Aceptar' check:text='unchecked' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAbCAYAAAA9K9JnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFoSURBVGhD7ZXBdcMgDEDZiW00SW6swipM0bM38AaqhcGRCDStlfDqPB3+SwAZrG/Jduu6onEOk6fA5CkQ8tzty3iC8CUGnWBDInyJQQlYlsVoMHkKTJ4Ck6fA5CmYKC9h8A6dD5i66wpSQP+OfZ8wT15OEBC8x5A66xo+XV4KHn1IGMHl3/taRHBbRRYgbnMk45grsg/5TWyt6DJHe9NZdSyvDxi2850DjOzezjJJHiVYkojAWndPfJdQIZksuVpVWSirWtqnxtWYeg2H4iAeD0SepWOOPJEcyZHVIJIuSd4rp1TKQ+wP+7R70FrvLCVT5Mk22smt20tolOTD/EAe/ecVWtdG+yqYIK/Tmkfrjtq2015t8rz9s7B+C+cHR+NLyuvedFM1rCKztGbuSJ7PNS99+hDRfP0o1TgPsJ9/SXmv4g3JazF5Cq4j7x9i8hT8Wp4xRvgSg06wIRG++MD4GyZPgck7zYrf98DNyCbz/BAAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <Throw Exception="[new BusinessRuleException(&quot;Ruta de arbol no encontrada: &quot;+in_rutaEntrada)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
@@ -341,7 +352,7 @@
         </ActivityAction>
       </uix:NApplicationCard.Body>
       <uix:NApplicationCard.TargetApp>
-        <uix:TargetApp Area="793, 356, 334, 327" FilePath="C:\Users\admonext\AppData\Local\Apps\2.0\OZ690CAV.8HM\L2T186M3.RJN\reta..tion_460f06de07ae0cc9_0001.0038_1cb87948fc773663\reta.wpf.taking.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVaSURBVFhHnddpbBRlGAfwyhdNjBo/SIgfRBM1MTGBGBEE5IZWo2IMgmgLhh4sBcQeiFIDrSyCKKI0XhyFNJGIgRQxsQrS0IAFObqld7eFUnrQ2q702O52u8ff//PuDO2ys7MtT/ILZdp5n+e9Zt6JiRbIiNU9RDMpi47QRaqjeiql42SlOHqE1H13HXoDNI4sdIoc5CdEEKBeOk8b6Am6h7RWRxhyA91Hb5P01EdGCc1IMbW0hh4krXWTkD/SjKVc6iejxkdjkH6hJ0m1bxj6L+kxOkbSA6MG71YJTSDjIrRfSM8luVED5tIXAGnzguRno78Jro2nScuqhVyge2k3jb7nknBLApBvBfKygc1LzIoooIcpJLlYQk4yuimy9PnArjVAsx0I+AGfD6i7DGxdFqkIWdAfksqrJ5etJsNjdIO5zJeBC38iLH4/aDYKjfQs3S4ghUa31aRxmW8W0JtnRfelYvjd/Vp2wFl8HI7UORj8gCNkdH9G7DZSBTxAJ7SLI6PmPB44kovAmWPoOroH9VssaPpuMzydNxHwedH0w6ewLZ2EmuVT0bZyJlzvz0MgPaSdShovBUyjTu1idPqcN9WqOXc3X1U993Y7cGPvZ7i+OwvtR/ehPHE2bO+8gNJ3J8NGFQlT0Jg4Hd2r58CbpqbGjczYeClgPZk9XodIz7PeBGovqWHuq7iABusqtBfsV72WIupzUph4kkouiYeTYsriJ6PuvanosMxC39q5+6SAn8ISRZLG3uemAdpcN+/froa9/2p1cAcw2gvy1NDfmXw4fVTK46dclALOhiWKRBbd3k+41bwqmauxFk3f5+DGHit8/X3qWtepgrCEJtqkgKqwRJHICOxM5dh3q2S9ZSVq+BusqRh0dKhrrYdyURplBIbpkwKqwxKZ2fAqcL5QJXNWl+Lazkz02P5W/3e3XENN5uKoUzCMUwo4F5ZkOPUw0cgO4DQEspdi8FyhGnZv7y34B9zot5errViW8CJs8VMMF6GBdingcFhS3UevA5sWAx8vBDa+AWxbgYGtK9Ca9hpqkufAvjmJayAbV3ekoWLlAtSsX4Lr32xEw9bVqMl4C2XLpweLMU4ubFKAHLFCX0DS0+2JQNV5oK0x+Gy324DuLvh6HHA11aP7nyI4Tv+GriI+iIp+Vau/PicZrfm70HJgB58Fe9FzsRj27CSzNZEvBcym/0IKkNW+JwvwetTcRgy/H37PAHzOHri4Fe2bVjD5F3DWXUHAO4i+6stqVNRzITy5hxKlAHk1ng4tIHS/G0V/QyU6Tx5B5x+H0Vn4MxwcBVmMfpcTno4WtOR/pabFZC3Y6SkpQKyjoWmQAr60cFO3AeVnAY9bSzsU0kPpfcDLZ0IgoK75nL2qoOqMRcHE5gvxaxqjFyDHsCu3C9BfNo1VQEUJ0NEMXDkDT2mx2vsytDICrut16l0gbpWc4OJLDe6C6NuwjZ6nkANJEg2oAkRmHB86q4AfNwKfJwPrX4EvIw6OtQtgT5mL8iRKmY+KVXGosMShbNm0kT6AAmSlMRRyKrqfDt4uQI1EcN+rf4ddl3f8v5aZqFnG3nKYS0e253V/0TgKJteDDYvxVKQnisbDQtpZSLUUYpzsTpX0HMWIkGCDumcodFdEIYXc5KGjyrwQSf4ShSfXg43pHqdD5CHDpEbc6+ajNWUGKrkQ9Vcu+ekkTZTEImqwMSFHNfmsstOojuqudfPQnDxDTkGtTJhDY0ecXA82JOTDUj6pNpGNRvKpJjup1p8eu7PdMmti4cIJQ6v9boKN6YU8SovoW5JDTBPJWVK00AXKo+UkX8VjSGslUsTE/A8GZIzu5ZY2iQAAAABJRU5ErkJggg==" InformativeScreenshot="97ac4307b92f7ff5fce584e4c1ead929.png" Selector="&lt;wnd app='reta.wpf.taking.exe' cls='#32770' title='Buscar carpeta'/&gt;" />
+        <uix:TargetApp Area="793, 356, 388, 393" FilePath="C:\Users\des_RPA2\AppData\Local\Apps\2.0\GBQOK0R3.A0Y\P22O1ROA.Z5C\reta..tion_460f06de07ae0cc9_0001.003e_56f8c2c2e99fcaa3\reta.wpf.taking.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVaSURBVFhHnddpbBRlGAfwyhdNjBo/SIgfRBM1MTGBGBEE5IZWo2IMgmgLhh4sBcQeiFIDrSyCKKI0XhyFNJGIgRQxsQrS0IAFObqld7eFUnrQ2q702O52u8ff//PuDO2ys7MtT/ILZdp5n+e9Zt6JiRbIiNU9RDMpi47QRaqjeiql42SlOHqE1H13HXoDNI4sdIoc5CdEEKBeOk8b6Am6h7RWRxhyA91Hb5P01EdGCc1IMbW0hh4krXWTkD/SjKVc6iejxkdjkH6hJ0m1bxj6L+kxOkbSA6MG71YJTSDjIrRfSM8luVED5tIXAGnzguRno78Jro2nScuqhVyge2k3jb7nknBLApBvBfKygc1LzIoooIcpJLlYQk4yuimy9PnArjVAsx0I+AGfD6i7DGxdFqkIWdAfksqrJ5etJsNjdIO5zJeBC38iLH4/aDYKjfQs3S4ghUa31aRxmW8W0JtnRfelYvjd/Vp2wFl8HI7UORj8gCNkdH9G7DZSBTxAJ7SLI6PmPB44kovAmWPoOroH9VssaPpuMzydNxHwedH0w6ewLZ2EmuVT0bZyJlzvz0MgPaSdShovBUyjTu1idPqcN9WqOXc3X1U993Y7cGPvZ7i+OwvtR/ehPHE2bO+8gNJ3J8NGFQlT0Jg4Hd2r58CbpqbGjczYeClgPZk9XodIz7PeBGovqWHuq7iABusqtBfsV72WIupzUph4kkouiYeTYsriJ6PuvanosMxC39q5+6SAn8ISRZLG3uemAdpcN+/froa9/2p1cAcw2gvy1NDfmXw4fVTK46dclALOhiWKRBbd3k+41bwqmauxFk3f5+DGHit8/X3qWtepgrCEJtqkgKqwRJHICOxM5dh3q2S9ZSVq+BusqRh0dKhrrYdyURplBIbpkwKqwxKZ2fAqcL5QJXNWl+Lazkz02P5W/3e3XENN5uKoUzCMUwo4F5ZkOPUw0cgO4DQEspdi8FyhGnZv7y34B9zot5errViW8CJs8VMMF6GBdingcFhS3UevA5sWAx8vBDa+AWxbgYGtK9Ca9hpqkufAvjmJayAbV3ekoWLlAtSsX4Lr32xEw9bVqMl4C2XLpweLMU4ubFKAHLFCX0DS0+2JQNV5oK0x+Gy324DuLvh6HHA11aP7nyI4Tv+GriI+iIp+Vau/PicZrfm70HJgB58Fe9FzsRj27CSzNZEvBcym/0IKkNW+JwvwetTcRgy/H37PAHzOHri4Fe2bVjD5F3DWXUHAO4i+6stqVNRzITy5hxKlAHk1ng4tIHS/G0V/QyU6Tx5B5x+H0Vn4MxwcBVmMfpcTno4WtOR/pabFZC3Y6SkpQKyjoWmQAr60cFO3AeVnAY9bSzsU0kPpfcDLZ0IgoK75nL2qoOqMRcHE5gvxaxqjFyDHsCu3C9BfNo1VQEUJ0NEMXDkDT2mx2vsytDICrut16l0gbpWc4OJLDe6C6NuwjZ6nkANJEg2oAkRmHB86q4AfNwKfJwPrX4EvIw6OtQtgT5mL8iRKmY+KVXGosMShbNm0kT6AAmSlMRRyKrqfDt4uQI1EcN+rf4ddl3f8v5aZqFnG3nKYS0e253V/0TgKJteDDYvxVKQnisbDQtpZSLUUYpzsTpX0HMWIkGCDumcodFdEIYXc5KGjyrwQSf4ShSfXg43pHqdD5CHDpEbc6+ajNWUGKrkQ9Vcu+ekkTZTEImqwMSFHNfmsstOojuqudfPQnDxDTkGtTJhDY0ecXA82JOTDUj6pNpGNRvKpJjup1p8eu7PdMmti4cIJQ6v9boKN6YU8SovoW5JDTBPJWVK00AXKo+UkX8VjSGslUsTE/A8GZIzu5ZY2iQAAAABJRU5ErkJggg==" InformativeScreenshot="9b79c545ddad67bcce37ac323b08e84e.png" Selector="&lt;wnd app='reta.wpf.taking.exe' cls='#32770' title='Buscar carpeta' /&gt;" />
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
     <di:UpdateINFO sap:VirtualizedContainerService.HintSize="1080,132" sap2010:WorkflowViewState.IdRef="UpdateINFO_2" in_clear_form="False" in_error="False" in_mensaje="FIN navegacion por Arbol de Taking" in_warning="False" io_INFO="[INFO]">

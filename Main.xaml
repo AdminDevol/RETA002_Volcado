@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1235,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1164,771</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="144">
@@ -741,7 +741,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Procesamiento de una transaccion. &#xA;Resultados posibles: &#xA;1.- OK &#xA;2.- Excepcion de Negocio. &#xA;3.- Excepcion de Sistema. &#xA;&#xA;Con una excepcion de sistema se realiza el cálculo de si se ha de reintentar o no. Este numero maximo de reintentos se indica en Configuracion o en la Configuracion de la cola de Orchestrator usada si es que se usa una cola. " DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="389,223" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Procesamiento de una transaccion. &#xA;Resultados posibles: &#xA;1.- OK &#xA;2.- Excepcion de Negocio. &#xA;3.- Excepcion de Sistema. &#xA;&#xA;Con una excepcion de sistema se realiza el cálculo de si se ha de reintentar o no. Este numero maximo de reintentos se indica en Configuracion o en la Configuracion de la cola de Orchestrator usada si es que se usa una cola. " DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="612,1750" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
                 <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="566,1189" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <TryCatch.Variables>
@@ -754,7 +754,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="376,538" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="376,463" sap2010:WorkflowViewState.IdRef="Sequence_28">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -811,7 +811,7 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="Exception" />
                         </ActivityAction.Argument>
-                        <Sequence sap:VirtualizedContainerService.HintSize="480,843" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                        <Sequence sap:VirtualizedContainerService.HintSize="480,800" sap2010:WorkflowViewState.IdRef="Sequence_64">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -825,7 +825,7 @@
                               <InArgument x:TypeArguments="ui:BusinessRuleException">[Exception]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <TryCatch DisplayName="Private: Quitar info extra" sap:VirtualizedContainerService.HintSize="438,479" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                          <TryCatch DisplayName="Private: Quitar info extra" sap:VirtualizedContainerService.HintSize="438,562" sap2010:WorkflowViewState.IdRef="TryCatch_10">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -966,7 +966,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[Environment.GetEnvironmentVariable(&quot;DEVOL_DATA_FOLDER&quot;).ToString + &quot;\Errores\&quot; +Config(&quot;ERRORES&quot;).ToString+&quot;.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="AppendLine_4" Text="[BusinessException.Message]" UseDefaultEncoding="False" />
+                                <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[Environment.GetEnvironmentVariable(&quot;DEVOL_DATA_FOLDER&quot;).ToString + &quot;\Errores\&quot; +Config(&quot;ERRORES&quot;).ToString+&quot;.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="AppendLine_4" Text="[Exception.Message]" UseDefaultEncoding="False" />
                               </Sequence>
                             </If.Then>
                             <If.Else>

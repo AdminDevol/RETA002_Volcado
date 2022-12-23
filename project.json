@@ -5,7 +5,7 @@
   "dependencies": {
     "DEVOL_FWK_LIBRARY": "22.4.22",
     "DEVOL_UTILS_LIBRARY": "[1.0.1]",
-    "RETA_LIBRERIA": "22.5.31-alpha",
+    "RETA_LIBRERIA": "22.12.23.1",
     "UiPath.Excel.Activities": "2.11.4",
     "UiPath.MicrosoftOffice365.Activities": "[1.14.1]",
     "UiPath.System.Activities": "22.4.1",
@@ -17,7 +17,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.0.0",
-  "projectVersion": "22.12.21.1",
+  "projectVersion": "22.12.21.3",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
